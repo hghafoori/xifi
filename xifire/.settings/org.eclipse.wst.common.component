@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="2.0">
+  <wb-module deploy-name="xifire">
+    <property name="context-root" value="xifire"/>
+    <wb-resource deploy-path="/" source-path="src/main/webapp"/>
+    <property name="java-output-path" value="/target/classes"/>
+    <dependent-module archiveName="vaadin-server-7.3.7.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/vaadin/vaadin-server/7.3.7/vaadin-server-7.3.7.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="vaadin-sass-compiler-0.9.10.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/vaadin/vaadin-sass-compiler/0.9.10/vaadin-sass-compiler-0.9.10.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="sac-1.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/w3c/css/sac/1.3/sac-1.3.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="flute-1.3.0.gg2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/vaadin/external/flute/flute/1.3.0.gg2/flute-1.3.0.gg2.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="vaadin-shared-7.3.7.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/vaadin/vaadin-shared/7.3.7/vaadin-shared-7.3.7.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="streamhtmlparser-jsilver-0.0.10.vaadin1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/vaadin/external/streamhtmlparser/streamhtmlparser-jsilver/0.0.10.vaadin1/streamhtmlparser-jsilver-0.0.10.vaadin1.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="guava-16.0.1.vaadin1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/vaadin/external/google/guava/16.0.1.vaadin1/guava-16.0.1.vaadin1.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="json-0.0.20080701.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/vaadin/external/json/json/0.0.20080701/json-0.0.20080701.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="jsoup-1.6.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jsoup/jsoup/1.6.3/jsoup-1.6.3.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="vaadin-client-compiled-7.3.7.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/vaadin/vaadin-client-compiled/7.3.7/vaadin-client-compiled-7.3.7.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="vaadin-themes-7.3.7.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/vaadin/vaadin-themes/7.3.7/vaadin-themes-7.3.7.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="portal-client-6.2.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/liferay/portal/portal-client/6.2.1/portal-client-6.2.1.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="util-bridges-6.2.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/liferay/portal/util-bridges/6.2.1/util-bridges-6.2.1.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="util-taglib-6.2.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/liferay/portal/util-taglib/6.2.1/util-taglib-6.2.1.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
+    <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>
+  </wb-module>
+</project-modules>
