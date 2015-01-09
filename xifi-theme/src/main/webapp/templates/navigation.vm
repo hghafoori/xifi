@@ -1,0 +1,54 @@
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <ul class="nav navbar-nav navbar-left">
+          <li><img src="/xifi-theme/images/xifi-logo.png" alt="XiFi" height="50px"/><font color="white"><b>XiFi</b></font></li>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+        #set ($first = true)
+        #foreach ($nav_item in $nav_items)
+			## Ignoring the First Item
+			#if($first)
+				#set ($first = false)
+			#else
+				#if ($nav_item.isSelected())
+					#set ($nav_item_class = "selected")
+				#else
+					#set ($nav_item_class = "")
+				#end
+				<li >
+					#if (!$nav_item.hasChildren())
+						<a href="$nav_item.getURL()"><span class="$nav_item_class">$nav_item.getName()</span></a>
+					#else
+						<a href="#"><span class="$nav_item_class">$nav_item.getName()</span></a>
+						<ul class="child-menu">
+							#foreach ($nav_child in $nav_item.getChildren())
+								#if ($nav_child.isSelected())
+									#set ($nav_child_class = "selected")
+								#else
+									#set ($nav_child_class = "")
+								#end
+
+								<li class="$nav_child_class">
+									<a href="$nav_child.getURL()" $nav_child.getTarget()>$nav_child.getName()</a>
+								</li>
+							#end
+						</ul>
+					#end
+			   </li>
+			   	#end
+		#end
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>

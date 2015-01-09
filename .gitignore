@@ -1,3 +1,11 @@
 /xifire/target
 /xifi-theme/target
-
+/xifire/.classpath
+/xifire/.gitignore
+/xifire/.project
+/xifire/.settings/
+/pom.xml~
+/xifi-theme/.classpath
+/xifi-theme/.project
+/.gitignore~
+/pom.xml
