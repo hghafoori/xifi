@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 5.2.0//EN"
+        "http://www.liferay.com/dtd/liferay-service-builder_5_2_0.dtd">
+
+<service-builder package-path="com.xebia.xifire">
+<namespace>xifi</namespace>
+
+    <entity name="UserReimbursement" local-service="true" remote-service="false" table="user_reimbursement">
+        <!--  PK fields -->
+
+        <column name="id" type="int" primary="true"/>
+
+        <!--  Audit fields -->
+
+        <column name="createDate" type="Date"/>
+        <column name="modifiedDate" type="Date"/>
+
+        <!--  Other fields -->
+		<column name="userId" type="int"/>
+        <column name="description" type="String"/>
+        <column name="status" type="String"/>
+
+        <!--  Finders -->
+        <finder return-type="UserReimbursement" name="UserId" unique="true">
+            <finder-column name="userId"/>
+        </finder>
+    </entity>
+
+    <entity name="ReimbursementItem" local-service="true" remote-service="false" table="reimbursement_item">
+        <!-- PK fields -->
+
+        <column name="id" type="int" primary="true"/>
+
+        <!-- Other fields -->
+
+        <column name="userReimbursementId" type="int"/>
+        <column name="billDate" type="Date"/>
+        <column name="description" type="String"/>
+        <column name="billAmount" type="int"/>
+        <column name="billCategory" type="String"/>
+        <column name="document" type="Blob"/>
+    </entity>
+
+    <entity name="EmployeeDetail" local-service="true" remote-service="false" table="employee_detail">
+        <!-- PK fields -->
+
+        <column name="id" type="int" primary="true"/>
+
+        <!-- Other fields -->
+
+        <column name="userId" type="int"/>
+        <column name="employeeCode" type="String"/>
+        <column name="designation" type="String"/>
+        <column name="location" type="String"/>
+        <column name="department" type="String"/>
+        <column name="pfNumber" type="String"/>
+        <column name="doj" type="Date"/>
+        <column name="bankAccount" type="String"/>
+        <column name="panNumber" type="String"/>
+        
+        <finder return-type="EmployeeDetail" name="UserId" unique="true">
+            <finder-column name="userId"/>
+        </finder>
+        
+    </entity>
+    
+    <entity name="Salary" local-service="true" remote-service="false" table="salary">
+        <!-- PK fields -->
+
+        <column name="id" type="int" primary="true"/>
+
+        <!-- Other fields -->
+
+        <column name="userId" type="int"/>
+        <column name="salaryMonth" type="int"/>
+        <column name="salaryYear" type="int"/>
+        <column name="basic" type="int"/>
+		<column name="arrears" type="int"/>
+		<column name="others" type="int"/>
+		<column name="tds" type="int"/>
+		<column name="lta" type="int"/>
+		<column name="HRA" type="int"/>
+		<column name="specialAllowance" type="int"/>
+		<column name="attireAllowance" type="int"/>
+		<column name="foodAllowance" type="int"/>
+		<column name="educationCess" type="int"/>
+		<column name="pf" type="int"/>
+		<column name="epf" type="int"/>
+		<column name="laborWelfare" type="int"/>
+		<column name="mediclaim" type="int"/>
+		<column name="otherDeduction" type="int"/>
+		
+		<finder return-type="Salary" name="UserIdMonthAndYear" unique="true">
+            <finder-column name="userId"/>
+            <finder-column name="salaryMonth"/>
+            <finder-column name="salaryYear"/>
+        </finder>
+		
+    </entity>
+</service-builder>

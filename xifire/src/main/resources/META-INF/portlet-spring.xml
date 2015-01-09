@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.tbb.signup.service.EmployeeDetailLocalService" class="com.tbb.signup.service.impl.EmployeeDetailLocalServiceImpl" />
+	<bean id="com.tbb.signup.service.persistence.EmployeeDetailPersistence" class="com.tbb.signup.service.persistence.EmployeeDetailPersistenceImpl" parent="basePersistence" />
+	<bean id="com.tbb.signup.service.ReimbursementItemLocalService" class="com.tbb.signup.service.impl.ReimbursementItemLocalServiceImpl" />
+	<bean id="com.tbb.signup.service.persistence.ReimbursementItemPersistence" class="com.tbb.signup.service.persistence.ReimbursementItemPersistenceImpl" parent="basePersistence" />
+	<bean id="com.tbb.signup.service.SalaryLocalService" class="com.tbb.signup.service.impl.SalaryLocalServiceImpl" />
+	<bean id="com.tbb.signup.service.persistence.SalaryPersistence" class="com.tbb.signup.service.persistence.SalaryPersistenceImpl" parent="basePersistence" />
+	<bean id="com.tbb.signup.service.UserReimbursementLocalService" class="com.tbb.signup.service.impl.UserReimbursementLocalServiceImpl" />
+	<bean id="com.tbb.signup.service.persistence.UserReimbursementPersistence" class="com.tbb.signup.service.persistence.UserReimbursementPersistenceImpl" parent="basePersistence" />
+	<bean id="com.xebia.xifire.service.EmployeeDetailLocalService" class="com.xebia.xifire.service.impl.EmployeeDetailLocalServiceImpl" />
+	<bean id="com.xebia.xifire.service.persistence.EmployeeDetailPersistence" class="com.xebia.xifire.service.persistence.EmployeeDetailPersistenceImpl" parent="basePersistence" />
+	<bean id="com.xebia.xifire.service.ReimbursementItemLocalService" class="com.xebia.xifire.service.impl.ReimbursementItemLocalServiceImpl" />
+	<bean id="com.xebia.xifire.service.persistence.ReimbursementItemPersistence" class="com.xebia.xifire.service.persistence.ReimbursementItemPersistenceImpl" parent="basePersistence" />
+	<bean id="com.xebia.xifire.service.SalaryLocalService" class="com.xebia.xifire.service.impl.SalaryLocalServiceImpl" />
+	<bean id="com.xebia.xifire.service.persistence.SalaryPersistence" class="com.xebia.xifire.service.persistence.SalaryPersistenceImpl" parent="basePersistence" />
+	<bean id="com.xebia.xifire.service.UserReimbursementLocalService" class="com.xebia.xifire.service.impl.UserReimbursementLocalServiceImpl" />
+	<bean id="com.xebia.xifire.service.persistence.UserReimbursementPersistence" class="com.xebia.xifire.service.persistence.UserReimbursementPersistenceImpl" parent="basePersistence" />
+</beans>
