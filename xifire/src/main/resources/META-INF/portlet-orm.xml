@@ -7,92 +7,6 @@
 			<access>PROPERTY</access>
 		</persistence-unit-defaults>
 	</persistence-unit-metadata>
-	<mapped-superclass class="com.tbb.signup.model.impl.EmployeeDetailModelImpl">
-		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
-			<basic name="userId" />
-			<basic name="employeeCode" />
-			<basic name="designation" />
-			<basic name="location" />
-			<basic name="department" />
-			<basic name="pfNumber" />
-			<basic name="doj">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="bankAccount" />
-			<transient name="modelAttributes" />
-			<transient name="primaryKey" />
-			<transient name="primaryKeyObj" />
-		</attributes>
-	</mapped-superclass>
-	<mapped-superclass class="com.tbb.signup.model.impl.ReimbursementItemModelImpl">
-		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
-			<basic name="userReimbursementId" />
-			<basic name="billDate">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="description" />
-			<basic name="billAmount" />
-			<basic name="billCategory" />
-			<basic name="document" />
-			<transient name="modelAttributes" />
-			<transient name="primaryKey" />
-			<transient name="primaryKeyObj" />
-		</attributes>
-	</mapped-superclass>
-	<mapped-superclass class="com.tbb.signup.model.impl.SalaryModelImpl">
-		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
-			<basic name="userId" />
-			<basic name="salaryDate">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="basic" />
-			<basic name="arrears" />
-			<basic name="others" />
-			<basic name="tds" />
-			<basic name="lta" />
-			<basic name="HRA" />
-			<basic name="specialAllowance" />
-			<basic name="attireAllowance" />
-			<basic name="foodAllowance" />
-			<basic name="educationCess" />
-			<basic name="pf" />
-			<basic name="epf" />
-			<basic name="laborWelfare" />
-			<basic name="mediclaim" />
-			<basic name="otherDeduction" />
-			<transient name="modelAttributes" />
-			<transient name="primaryKey" />
-			<transient name="primaryKeyObj" />
-		</attributes>
-	</mapped-superclass>
-	<mapped-superclass class="com.tbb.signup.model.impl.UserReimbursementModelImpl">
-		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
-			<basic name="createDate">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="modifiedDate">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="userId" />
-			<basic name="description" />
-			<basic name="status" />
-			<transient name="modelAttributes" />
-			<transient name="primaryKey" />
-			<transient name="primaryKeyObj" />
-		</attributes>
-	</mapped-superclass>
 	<mapped-superclass class="com.xebia.xifire.model.impl.EmployeeDetailModelImpl">
 		<attributes>
 			<id name="id">
@@ -179,22 +93,6 @@
 			<transient name="primaryKeyObj" />
 		</attributes>
 	</mapped-superclass>
-	<entity class="com.tbb.signup.model.impl.EmployeeDetailImpl" name="EmployeeDetail">
-		<table name="employee_detail" />
-		<attributes />
-	</entity>
-	<entity class="com.tbb.signup.model.impl.ReimbursementItemImpl" name="ReimbursementItem">
-		<table name="reimbursement_item" />
-		<attributes />
-	</entity>
-	<entity class="com.tbb.signup.model.impl.SalaryImpl" name="Salary">
-		<table name="salary" />
-		<attributes />
-	</entity>
-	<entity class="com.tbb.signup.model.impl.UserReimbursementImpl" name="UserReimbursement">
-		<table name="user_reimbursement" />
-		<attributes />
-	</entity>
 	<entity class="com.xebia.xifire.model.impl.EmployeeDetailImpl" name="EmployeeDetail">
 		<table name="employee_detail" />
 		<attributes />

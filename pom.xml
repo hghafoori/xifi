@@ -61,5 +61,6 @@
   <modules>
     <module>xifire</module>
     <module>xifi-theme</module>
+    <module>xifire-responsive</module>
   </modules>
 </project>

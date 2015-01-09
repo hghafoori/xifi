@@ -2,82 +2,10 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping default-lazy="false" auto-import="false">
-	<import class="com.tbb.signup.model.EmployeeDetail" />
-	<import class="com.tbb.signup.model.ReimbursementItem" />
-	<import class="com.tbb.signup.model.Salary" />
-	<import class="com.tbb.signup.model.UserReimbursement" />
 	<import class="com.xebia.xifire.model.EmployeeDetail" />
 	<import class="com.xebia.xifire.model.ReimbursementItem" />
 	<import class="com.xebia.xifire.model.Salary" />
 	<import class="com.xebia.xifire.model.UserReimbursement" />
-	<class name="com.tbb.signup.model.impl.EmployeeDetailImpl" table="employee_detail">
-		<cache usage="read-write" />
-		<id name="id" column="id_" type="int">
-			<generator class="assigned" />
-		</id>
-		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="employeeCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="designation" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="location" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="department" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="pfNumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="doj" type="org.hibernate.type.TimestampType" />
-		<property name="bankAccount" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-	</class>
-	<class name="com.tbb.signup.model.impl.ReimbursementItemImpl" table="reimbursement_item">
-		<cache usage="read-write" />
-		<id name="id" column="id_" type="int">
-			<generator class="assigned" />
-		</id>
-		<property name="userReimbursementId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="billDate" type="org.hibernate.type.TimestampType" />
-		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="billAmount" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="billCategory" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<one-to-one name="documentBlobModel" access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" class="com.tbb.signup.model.ReimbursementItemDocumentBlobModel" cascade="save-update" outer-join="false" constrained="true" />
-	</class>
-	<class name="com.tbb.signup.model.ReimbursementItemDocumentBlobModel" table="reimbursement_item" lazy="true">
-		<id name="id" column="id">
-			<generator class="foreign">
-				<param name="property">com.tbb.signup.model.impl.ReimbursementItemImpl</param>
-			</generator>
-		</id>
-		<property column="document" name="documentBlob" type="blob" />
-	</class>
-	<class name="com.tbb.signup.model.impl.SalaryImpl" table="salary">
-		<cache usage="read-write" />
-		<id name="id" column="id_" type="int">
-			<generator class="assigned" />
-		</id>
-		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="salaryDate" type="org.hibernate.type.TimestampType" />
-		<property name="basic" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="arrears" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="others" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="tds" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="lta" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="HRA" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="specialAllowance" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="attireAllowance" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="foodAllowance" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="educationCess" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="pf" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="epf" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="laborWelfare" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="mediclaim" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="otherDeduction" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-	</class>
-	<class name="com.tbb.signup.model.impl.UserReimbursementImpl" table="user_reimbursement">
-		<cache usage="read-write" />
-		<id name="id" column="id_" type="int">
-			<generator class="assigned" />
-		</id>
-		<property name="createDate" type="org.hibernate.type.TimestampType" />
-		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
-		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-	</class>
 	<class name="com.xebia.xifire.model.impl.EmployeeDetailImpl" table="employee_detail">
 		<cache usage="read-write" />
 		<id name="id" column="id_" type="int">

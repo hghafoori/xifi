@@ -1,54 +1,6 @@
 <?xml version="1.0"?>
 
 <model-hints>
-	<model name="com.tbb.signup.model.EmployeeDetail">
-		<field name="id" type="int" />
-		<field name="userId" type="int" />
-		<field name="employeeCode" type="String" />
-		<field name="designation" type="String" />
-		<field name="location" type="String" />
-		<field name="department" type="String" />
-		<field name="pfNumber" type="String" />
-		<field name="doj" type="Date" />
-		<field name="bankAccount" type="String" />
-	</model>
-	<model name="com.tbb.signup.model.ReimbursementItem">
-		<field name="id" type="int" />
-		<field name="userReimbursementId" type="int" />
-		<field name="billDate" type="Date" />
-		<field name="description" type="String" />
-		<field name="billAmount" type="int" />
-		<field name="billCategory" type="String" />
-		<field name="document" type="Blob" />
-	</model>
-	<model name="com.tbb.signup.model.Salary">
-		<field name="id" type="int" />
-		<field name="userId" type="int" />
-		<field name="salaryDate" type="Date" />
-		<field name="basic" type="int" />
-		<field name="arrears" type="int" />
-		<field name="others" type="int" />
-		<field name="tds" type="int" />
-		<field name="lta" type="int" />
-		<field name="HRA" type="int" />
-		<field name="specialAllowance" type="int" />
-		<field name="attireAllowance" type="int" />
-		<field name="foodAllowance" type="int" />
-		<field name="educationCess" type="int" />
-		<field name="pf" type="int" />
-		<field name="epf" type="int" />
-		<field name="laborWelfare" type="int" />
-		<field name="mediclaim" type="int" />
-		<field name="otherDeduction" type="int" />
-	</model>
-	<model name="com.tbb.signup.model.UserReimbursement">
-		<field name="id" type="int" />
-		<field name="createDate" type="Date" />
-		<field name="modifiedDate" type="Date" />
-		<field name="userId" type="int" />
-		<field name="description" type="String" />
-		<field name="status" type="String" />
-	</model>
 	<model name="com.xebia.xifire.model.EmployeeDetail">
 		<field name="id" type="int" />
 		<field name="userId" type="int" />
