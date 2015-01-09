@@ -11,8 +11,8 @@
     <url>http://www.XiFi.xebia.com</url>
 
     <properties>
-        <liferay.auto.deploy.dir>xifitomcat/deploy</liferay.auto.deploy.dir>
-        <liferay.version>6.1.30</liferay.version>
+        <liferay.auto.deploy.dir>/home/chirag/projects/xifi/xifitomcat/deploy</liferay.auto.deploy.dir>
+        <liferay.version>6.2.1</liferay.version>
     </properties>
 
     <dependencies>

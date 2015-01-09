@@ -3,6 +3,6 @@
 
 <display>
 	<category name="category.sample">
-		<portlet id="My simple Vaadin portlet" />
+		<portlet id="xifire" />
 	</category>
 </display>

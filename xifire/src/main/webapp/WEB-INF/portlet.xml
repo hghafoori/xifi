@@ -1,40 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 
-<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd
-             http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
-	version="2.0">
-
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0">
 	<portlet>
-		<description>Write a short description about your portlet.</description>
-		<portlet-name>My simple Vaadin portlet</portlet-name>
-		<display-name>My Vaadin portlet</display-name>
-
-		<portlet-class>com.vaadin.server.VaadinPortlet</portlet-class>
-
+		<portlet-name>xifire</portlet-name>
+		<display-name>xifire</display-name>
+		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
 		<init-param>
-			<name>UI</name>
-			<value>com.xebia.MyPortletUI</value>
+			<name>view-template</name>
+			<value>/view.jsp</value>
 		</init-param>
-
-		<init-param>
-			<name>vaadin.resources.path</name>
-			<value>PORTLET_CONTEXT</value>
-		</init-param>
-
+		<expiration-cache>0</expiration-cache>
 		<supports>
 			<mime-type>text/html</mime-type>
-			<portlet-mode>view</portlet-mode>
 		</supports>
-
-
 		<portlet-info>
-			<title>My Vaadin portlet</title>
-			<short-title>Hello World</short-title>
-			<keywords>Vaadin 7</keywords>
+			<title>xifire</title>
+			<short-title>xifire</short-title>
+			<keywords>xifire</keywords>
 		</portlet-info>
-
 		<security-role-ref>
 			<role-name>administrator</role-name>
 		</security-role-ref>
@@ -47,6 +30,5 @@
 		<security-role-ref>
 			<role-name>user</role-name>
 		</security-role-ref>
-
 	</portlet>
 </portlet-app>
