@@ -231,4 +231,14 @@ public interface SalaryLocalService extends BaseLocalService,
     public java.lang.Object invokeMethod(java.lang.String name,
         java.lang.String[] parameterTypes, java.lang.Object[] arguments)
         throws java.lang.Throwable;
+
+    public com.xebia.xifire.model.Salary findByUserId(int userId)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    public com.xebia.xifire.model.Salary findByUserIdAndYear(int userId,
+        int year) throws com.liferay.portal.kernel.exception.SystemException;
+
+    public com.xebia.xifire.model.Salary findByUserIdMonthAndYear(int userId,
+        int month, int year)
+        throws com.liferay.portal.kernel.exception.SystemException;
 }

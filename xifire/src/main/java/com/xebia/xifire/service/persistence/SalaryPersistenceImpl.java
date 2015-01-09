@@ -92,6 +92,28 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
     private static final String _FINDER_COLUMN_USERIDMONTHANDYEAR_USERID_2 = "salary.userId = ? AND ";
     private static final String _FINDER_COLUMN_USERIDMONTHANDYEAR_SALARYMONTH_2 = "salary.salaryMonth = ? AND ";
     private static final String _FINDER_COLUMN_USERIDMONTHANDYEAR_SALARYYEAR_2 = "salary.salaryYear = ?";
+    public static final FinderPath FINDER_PATH_FETCH_BY_USERIDYEAR = new FinderPath(SalaryModelImpl.ENTITY_CACHE_ENABLED,
+            SalaryModelImpl.FINDER_CACHE_ENABLED, SalaryImpl.class,
+            FINDER_CLASS_NAME_ENTITY, "fetchByUserIdYear",
+            new String[] { Integer.class.getName(), Integer.class.getName() },
+            SalaryModelImpl.USERID_COLUMN_BITMASK |
+            SalaryModelImpl.SALARYYEAR_COLUMN_BITMASK);
+    public static final FinderPath FINDER_PATH_COUNT_BY_USERIDYEAR = new FinderPath(SalaryModelImpl.ENTITY_CACHE_ENABLED,
+            SalaryModelImpl.FINDER_CACHE_ENABLED, Long.class,
+            FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByUserIdYear",
+            new String[] { Integer.class.getName(), Integer.class.getName() });
+    private static final String _FINDER_COLUMN_USERIDYEAR_USERID_2 = "salary.userId = ? AND ";
+    private static final String _FINDER_COLUMN_USERIDYEAR_SALARYYEAR_2 = "salary.salaryYear = ?";
+    public static final FinderPath FINDER_PATH_FETCH_BY_USERID = new FinderPath(SalaryModelImpl.ENTITY_CACHE_ENABLED,
+            SalaryModelImpl.FINDER_CACHE_ENABLED, SalaryImpl.class,
+            FINDER_CLASS_NAME_ENTITY, "fetchByUserId",
+            new String[] { Integer.class.getName() },
+            SalaryModelImpl.USERID_COLUMN_BITMASK);
+    public static final FinderPath FINDER_PATH_COUNT_BY_USERID = new FinderPath(SalaryModelImpl.ENTITY_CACHE_ENABLED,
+            SalaryModelImpl.FINDER_CACHE_ENABLED, Long.class,
+            FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByUserId",
+            new String[] { Integer.class.getName() });
+    private static final String _FINDER_COLUMN_USERID_USERID_2 = "salary.userId = ?";
     private static final String _SQL_SELECT_SALARY = "SELECT salary FROM Salary salary";
     private static final String _SQL_SELECT_SALARY_WHERE = "SELECT salary FROM Salary salary WHERE ";
     private static final String _SQL_COUNT_SALARY = "SELECT COUNT(salary) FROM Salary salary";
@@ -361,6 +383,412 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
     }
 
     /**
+     * Returns the salary where userId = &#63; and salaryYear = &#63; or throws a {@link com.xebia.xifire.NoSuchSalaryException} if it could not be found.
+     *
+     * @param userId the user ID
+     * @param salaryYear the salary year
+     * @return the matching salary
+     * @throws com.xebia.xifire.NoSuchSalaryException if a matching salary could not be found
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public Salary findByUserIdYear(int userId, int salaryYear)
+        throws NoSuchSalaryException, SystemException {
+        Salary salary = fetchByUserIdYear(userId, salaryYear);
+
+        if (salary == null) {
+            StringBundler msg = new StringBundler(6);
+
+            msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+            msg.append("userId=");
+            msg.append(userId);
+
+            msg.append(", salaryYear=");
+            msg.append(salaryYear);
+
+            msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+            if (_log.isWarnEnabled()) {
+                _log.warn(msg.toString());
+            }
+
+            throw new NoSuchSalaryException(msg.toString());
+        }
+
+        return salary;
+    }
+
+    /**
+     * Returns the salary where userId = &#63; and salaryYear = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+     *
+     * @param userId the user ID
+     * @param salaryYear the salary year
+     * @return the matching salary, or <code>null</code> if a matching salary could not be found
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public Salary fetchByUserIdYear(int userId, int salaryYear)
+        throws SystemException {
+        return fetchByUserIdYear(userId, salaryYear, true);
+    }
+
+    /**
+     * Returns the salary where userId = &#63; and salaryYear = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+     *
+     * @param userId the user ID
+     * @param salaryYear the salary year
+     * @param retrieveFromCache whether to use the finder cache
+     * @return the matching salary, or <code>null</code> if a matching salary could not be found
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public Salary fetchByUserIdYear(int userId, int salaryYear,
+        boolean retrieveFromCache) throws SystemException {
+        Object[] finderArgs = new Object[] { userId, salaryYear };
+
+        Object result = null;
+
+        if (retrieveFromCache) {
+            result = FinderCacheUtil.getResult(FINDER_PATH_FETCH_BY_USERIDYEAR,
+                    finderArgs, this);
+        }
+
+        if (result instanceof Salary) {
+            Salary salary = (Salary) result;
+
+            if ((userId != salary.getUserId()) ||
+                    (salaryYear != salary.getSalaryYear())) {
+                result = null;
+            }
+        }
+
+        if (result == null) {
+            StringBundler query = new StringBundler(4);
+
+            query.append(_SQL_SELECT_SALARY_WHERE);
+
+            query.append(_FINDER_COLUMN_USERIDYEAR_USERID_2);
+
+            query.append(_FINDER_COLUMN_USERIDYEAR_SALARYYEAR_2);
+
+            String sql = query.toString();
+
+            Session session = null;
+
+            try {
+                session = openSession();
+
+                Query q = session.createQuery(sql);
+
+                QueryPos qPos = QueryPos.getInstance(q);
+
+                qPos.add(userId);
+
+                qPos.add(salaryYear);
+
+                List<Salary> list = q.list();
+
+                if (list.isEmpty()) {
+                    FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_USERIDYEAR,
+                        finderArgs, list);
+                } else {
+                    Salary salary = list.get(0);
+
+                    result = salary;
+
+                    cacheResult(salary);
+
+                    if ((salary.getUserId() != userId) ||
+                            (salary.getSalaryYear() != salaryYear)) {
+                        FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_USERIDYEAR,
+                            finderArgs, salary);
+                    }
+                }
+            } catch (Exception e) {
+                FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_USERIDYEAR,
+                    finderArgs);
+
+                throw processException(e);
+            } finally {
+                closeSession(session);
+            }
+        }
+
+        if (result instanceof List<?>) {
+            return null;
+        } else {
+            return (Salary) result;
+        }
+    }
+
+    /**
+     * Removes the salary where userId = &#63; and salaryYear = &#63; from the database.
+     *
+     * @param userId the user ID
+     * @param salaryYear the salary year
+     * @return the salary that was removed
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public Salary removeByUserIdYear(int userId, int salaryYear)
+        throws NoSuchSalaryException, SystemException {
+        Salary salary = findByUserIdYear(userId, salaryYear);
+
+        return remove(salary);
+    }
+
+    /**
+     * Returns the number of salaries where userId = &#63; and salaryYear = &#63;.
+     *
+     * @param userId the user ID
+     * @param salaryYear the salary year
+     * @return the number of matching salaries
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public int countByUserIdYear(int userId, int salaryYear)
+        throws SystemException {
+        FinderPath finderPath = FINDER_PATH_COUNT_BY_USERIDYEAR;
+
+        Object[] finderArgs = new Object[] { userId, salaryYear };
+
+        Long count = (Long) FinderCacheUtil.getResult(finderPath, finderArgs,
+                this);
+
+        if (count == null) {
+            StringBundler query = new StringBundler(3);
+
+            query.append(_SQL_COUNT_SALARY_WHERE);
+
+            query.append(_FINDER_COLUMN_USERIDYEAR_USERID_2);
+
+            query.append(_FINDER_COLUMN_USERIDYEAR_SALARYYEAR_2);
+
+            String sql = query.toString();
+
+            Session session = null;
+
+            try {
+                session = openSession();
+
+                Query q = session.createQuery(sql);
+
+                QueryPos qPos = QueryPos.getInstance(q);
+
+                qPos.add(userId);
+
+                qPos.add(salaryYear);
+
+                count = (Long) q.uniqueResult();
+
+                FinderCacheUtil.putResult(finderPath, finderArgs, count);
+            } catch (Exception e) {
+                FinderCacheUtil.removeResult(finderPath, finderArgs);
+
+                throw processException(e);
+            } finally {
+                closeSession(session);
+            }
+        }
+
+        return count.intValue();
+    }
+
+    /**
+     * Returns the salary where userId = &#63; or throws a {@link com.xebia.xifire.NoSuchSalaryException} if it could not be found.
+     *
+     * @param userId the user ID
+     * @return the matching salary
+     * @throws com.xebia.xifire.NoSuchSalaryException if a matching salary could not be found
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public Salary findByUserId(int userId)
+        throws NoSuchSalaryException, SystemException {
+        Salary salary = fetchByUserId(userId);
+
+        if (salary == null) {
+            StringBundler msg = new StringBundler(4);
+
+            msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+            msg.append("userId=");
+            msg.append(userId);
+
+            msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+            if (_log.isWarnEnabled()) {
+                _log.warn(msg.toString());
+            }
+
+            throw new NoSuchSalaryException(msg.toString());
+        }
+
+        return salary;
+    }
+
+    /**
+     * Returns the salary where userId = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+     *
+     * @param userId the user ID
+     * @return the matching salary, or <code>null</code> if a matching salary could not be found
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public Salary fetchByUserId(int userId) throws SystemException {
+        return fetchByUserId(userId, true);
+    }
+
+    /**
+     * Returns the salary where userId = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+     *
+     * @param userId the user ID
+     * @param retrieveFromCache whether to use the finder cache
+     * @return the matching salary, or <code>null</code> if a matching salary could not be found
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public Salary fetchByUserId(int userId, boolean retrieveFromCache)
+        throws SystemException {
+        Object[] finderArgs = new Object[] { userId };
+
+        Object result = null;
+
+        if (retrieveFromCache) {
+            result = FinderCacheUtil.getResult(FINDER_PATH_FETCH_BY_USERID,
+                    finderArgs, this);
+        }
+
+        if (result instanceof Salary) {
+            Salary salary = (Salary) result;
+
+            if ((userId != salary.getUserId())) {
+                result = null;
+            }
+        }
+
+        if (result == null) {
+            StringBundler query = new StringBundler(3);
+
+            query.append(_SQL_SELECT_SALARY_WHERE);
+
+            query.append(_FINDER_COLUMN_USERID_USERID_2);
+
+            String sql = query.toString();
+
+            Session session = null;
+
+            try {
+                session = openSession();
+
+                Query q = session.createQuery(sql);
+
+                QueryPos qPos = QueryPos.getInstance(q);
+
+                qPos.add(userId);
+
+                List<Salary> list = q.list();
+
+                if (list.isEmpty()) {
+                    FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_USERID,
+                        finderArgs, list);
+                } else {
+                    Salary salary = list.get(0);
+
+                    result = salary;
+
+                    cacheResult(salary);
+
+                    if ((salary.getUserId() != userId)) {
+                        FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_USERID,
+                            finderArgs, salary);
+                    }
+                }
+            } catch (Exception e) {
+                FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_USERID,
+                    finderArgs);
+
+                throw processException(e);
+            } finally {
+                closeSession(session);
+            }
+        }
+
+        if (result instanceof List<?>) {
+            return null;
+        } else {
+            return (Salary) result;
+        }
+    }
+
+    /**
+     * Removes the salary where userId = &#63; from the database.
+     *
+     * @param userId the user ID
+     * @return the salary that was removed
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public Salary removeByUserId(int userId)
+        throws NoSuchSalaryException, SystemException {
+        Salary salary = findByUserId(userId);
+
+        return remove(salary);
+    }
+
+    /**
+     * Returns the number of salaries where userId = &#63;.
+     *
+     * @param userId the user ID
+     * @return the number of matching salaries
+     * @throws SystemException if a system exception occurred
+     */
+    @Override
+    public int countByUserId(int userId) throws SystemException {
+        FinderPath finderPath = FINDER_PATH_COUNT_BY_USERID;
+
+        Object[] finderArgs = new Object[] { userId };
+
+        Long count = (Long) FinderCacheUtil.getResult(finderPath, finderArgs,
+                this);
+
+        if (count == null) {
+            StringBundler query = new StringBundler(2);
+
+            query.append(_SQL_COUNT_SALARY_WHERE);
+
+            query.append(_FINDER_COLUMN_USERID_USERID_2);
+
+            String sql = query.toString();
+
+            Session session = null;
+
+            try {
+                session = openSession();
+
+                Query q = session.createQuery(sql);
+
+                QueryPos qPos = QueryPos.getInstance(q);
+
+                qPos.add(userId);
+
+                count = (Long) q.uniqueResult();
+
+                FinderCacheUtil.putResult(finderPath, finderArgs, count);
+            } catch (Exception e) {
+                FinderCacheUtil.removeResult(finderPath, finderArgs);
+
+                throw processException(e);
+            } finally {
+                closeSession(session);
+            }
+        }
+
+        return count.intValue();
+    }
+
+    /**
      * Caches the salary in the entity cache if it is enabled.
      *
      * @param salary the salary
@@ -375,6 +803,12 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
                 salary.getUserId(), salary.getSalaryMonth(),
                 salary.getSalaryYear()
             }, salary);
+
+        FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_USERIDYEAR,
+            new Object[] { salary.getUserId(), salary.getSalaryYear() }, salary);
+
+        FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_USERID,
+            new Object[] { salary.getUserId() }, salary);
 
         salary.resetOriginalValues();
     }
@@ -459,6 +893,19 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
                 args, Long.valueOf(1));
             FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_USERIDMONTHANDYEAR,
                 args, salary);
+
+            args = new Object[] { salary.getUserId(), salary.getSalaryYear() };
+
+            FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_USERIDYEAR, args,
+                Long.valueOf(1));
+            FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_USERIDYEAR, args,
+                salary);
+
+            args = new Object[] { salary.getUserId() };
+
+            FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_USERID, args,
+                Long.valueOf(1));
+            FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_USERID, args, salary);
         } else {
             SalaryModelImpl salaryModelImpl = (SalaryModelImpl) salary;
 
@@ -473,6 +920,28 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
                     args, Long.valueOf(1));
                 FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_USERIDMONTHANDYEAR,
                     args, salary);
+            }
+
+            if ((salaryModelImpl.getColumnBitmask() &
+                    FINDER_PATH_FETCH_BY_USERIDYEAR.getColumnBitmask()) != 0) {
+                Object[] args = new Object[] {
+                        salary.getUserId(), salary.getSalaryYear()
+                    };
+
+                FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_USERIDYEAR,
+                    args, Long.valueOf(1));
+                FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_USERIDYEAR,
+                    args, salary);
+            }
+
+            if ((salaryModelImpl.getColumnBitmask() &
+                    FINDER_PATH_FETCH_BY_USERID.getColumnBitmask()) != 0) {
+                Object[] args = new Object[] { salary.getUserId() };
+
+                FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_USERID, args,
+                    Long.valueOf(1));
+                FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_USERID, args,
+                    salary);
             }
         }
     }
@@ -502,6 +971,35 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
                 args);
             FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_USERIDMONTHANDYEAR,
                 args);
+        }
+
+        args = new Object[] { salary.getUserId(), salary.getSalaryYear() };
+
+        FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_USERIDYEAR, args);
+        FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_USERIDYEAR, args);
+
+        if ((salaryModelImpl.getColumnBitmask() &
+                FINDER_PATH_FETCH_BY_USERIDYEAR.getColumnBitmask()) != 0) {
+            args = new Object[] {
+                    salaryModelImpl.getOriginalUserId(),
+                    salaryModelImpl.getOriginalSalaryYear()
+                };
+
+            FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_USERIDYEAR, args);
+            FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_USERIDYEAR, args);
+        }
+
+        args = new Object[] { salary.getUserId() };
+
+        FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_USERID, args);
+        FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_USERID, args);
+
+        if ((salaryModelImpl.getColumnBitmask() &
+                FINDER_PATH_FETCH_BY_USERID.getColumnBitmask()) != 0) {
+            args = new Object[] { salaryModelImpl.getOriginalUserId() };
+
+            FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_USERID, args);
+            FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_USERID, args);
         }
     }
 

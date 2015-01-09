@@ -275,6 +275,13 @@ public class UserReimbursementLocalServiceWrapper
             parameterTypes, arguments);
     }
 
+    @Override
+    public com.xebia.xifire.model.UserReimbursement findByUserId(int userId)
+        throws com.liferay.portal.kernel.exception.SystemException,
+            com.xebia.xifire.NoSuchUserReimbursementException {
+        return _userReimbursementLocalService.findByUserId(userId);
+    }
+
     /**
      * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
      */

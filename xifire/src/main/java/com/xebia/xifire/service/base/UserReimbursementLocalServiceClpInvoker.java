@@ -45,6 +45,8 @@ public class UserReimbursementLocalServiceClpInvoker {
     private String[] _methodParameterTypes44;
     private String _methodName45;
     private String[] _methodParameterTypes45;
+    private String _methodName50;
+    private String[] _methodParameterTypes50;
 
     public UserReimbursementLocalServiceClpInvoker() {
         _methodName0 = "addUserReimbursement";
@@ -136,6 +138,10 @@ public class UserReimbursementLocalServiceClpInvoker {
         _methodName45 = "setBeanIdentifier";
 
         _methodParameterTypes45 = new String[] { "java.lang.String" };
+
+        _methodName50 = "findByUserId";
+
+        _methodParameterTypes50 = new String[] { "int" };
     }
 
     public Object invokeMethod(String name, String[] parameterTypes,
@@ -237,6 +243,11 @@ public class UserReimbursementLocalServiceClpInvoker {
             UserReimbursementLocalServiceUtil.setBeanIdentifier((java.lang.String) arguments[0]);
 
             return null;
+        }
+
+        if (_methodName50.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes50, parameterTypes)) {
+            return UserReimbursementLocalServiceUtil.findByUserId(((Integer) arguments[0]).intValue());
         }
 
         throw new UnsupportedOperationException();

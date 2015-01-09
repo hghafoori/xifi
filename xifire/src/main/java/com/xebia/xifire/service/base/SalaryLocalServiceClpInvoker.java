@@ -45,6 +45,12 @@ public class SalaryLocalServiceClpInvoker {
     private String[] _methodParameterTypes44;
     private String _methodName45;
     private String[] _methodParameterTypes45;
+    private String _methodName50;
+    private String[] _methodParameterTypes50;
+    private String _methodName51;
+    private String[] _methodParameterTypes51;
+    private String _methodName52;
+    private String[] _methodParameterTypes52;
 
     public SalaryLocalServiceClpInvoker() {
         _methodName0 = "addSalary";
@@ -130,6 +136,18 @@ public class SalaryLocalServiceClpInvoker {
         _methodName45 = "setBeanIdentifier";
 
         _methodParameterTypes45 = new String[] { "java.lang.String" };
+
+        _methodName50 = "findByUserId";
+
+        _methodParameterTypes50 = new String[] { "int" };
+
+        _methodName51 = "findByUserIdAndYear";
+
+        _methodParameterTypes51 = new String[] { "int", "int" };
+
+        _methodName52 = "findByUserIdMonthAndYear";
+
+        _methodParameterTypes52 = new String[] { "int", "int", "int" };
     }
 
     public Object invokeMethod(String name, String[] parameterTypes,
@@ -231,6 +249,24 @@ public class SalaryLocalServiceClpInvoker {
             SalaryLocalServiceUtil.setBeanIdentifier((java.lang.String) arguments[0]);
 
             return null;
+        }
+
+        if (_methodName50.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes50, parameterTypes)) {
+            return SalaryLocalServiceUtil.findByUserId(((Integer) arguments[0]).intValue());
+        }
+
+        if (_methodName51.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes51, parameterTypes)) {
+            return SalaryLocalServiceUtil.findByUserIdAndYear(((Integer) arguments[0]).intValue(),
+                ((Integer) arguments[1]).intValue());
+        }
+
+        if (_methodName52.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes52, parameterTypes)) {
+            return SalaryLocalServiceUtil.findByUserIdMonthAndYear(((Integer) arguments[0]).intValue(),
+                ((Integer) arguments[1]).intValue(),
+                ((Integer) arguments[2]).intValue());
         }
 
         throw new UnsupportedOperationException();

@@ -1,6 +1,9 @@
 package com.xebia.xifire.service.impl;
 
+import com.liferay.portal.kernel.exception.SystemException;
+import com.xebia.xifire.model.Salary;
 import com.xebia.xifire.service.base.SalaryLocalServiceBaseImpl;
+import com.xebia.xifire.service.persistence.SalaryPersistence;
 
 /**
  * The implementation of the salary local service.
@@ -22,4 +25,16 @@ public class SalaryLocalServiceImpl extends SalaryLocalServiceBaseImpl {
      *
      * Never reference this interface directly. Always use {@link com.xebia.xifire.service.SalaryLocalServiceUtil} to access the salary local service.
      */
+	
+	public Salary findByUserId(int userId) throws SystemException {
+		return salaryPersistence.fetchByUserId(userId);
+	}
+	
+	public Salary findByUserIdAndYear(int userId, int year) throws SystemException {
+		return salaryPersistence.fetchByUserIdYear(userId, year);
+	}
+	
+	public Salary findByUserIdMonthAndYear(int userId, int month, int year) throws SystemException {
+		return salaryPersistence.fetchByUserIdMonthAndYear(userId, month, year);
+	}
 }

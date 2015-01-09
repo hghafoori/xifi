@@ -93,6 +93,124 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**
+    * Returns the salary where userId = &#63; and salaryYear = &#63; or throws a {@link com.xebia.xifire.NoSuchSalaryException} if it could not be found.
+    *
+    * @param userId the user ID
+    * @param salaryYear the salary year
+    * @return the matching salary
+    * @throws com.xebia.xifire.NoSuchSalaryException if a matching salary could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public com.xebia.xifire.model.Salary findByUserIdYear(int userId,
+        int salaryYear)
+        throws com.liferay.portal.kernel.exception.SystemException,
+            com.xebia.xifire.NoSuchSalaryException;
+
+    /**
+    * Returns the salary where userId = &#63; and salaryYear = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+    *
+    * @param userId the user ID
+    * @param salaryYear the salary year
+    * @return the matching salary, or <code>null</code> if a matching salary could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public com.xebia.xifire.model.Salary fetchByUserIdYear(int userId,
+        int salaryYear)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
+    * Returns the salary where userId = &#63; and salaryYear = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+    *
+    * @param userId the user ID
+    * @param salaryYear the salary year
+    * @param retrieveFromCache whether to use the finder cache
+    * @return the matching salary, or <code>null</code> if a matching salary could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public com.xebia.xifire.model.Salary fetchByUserIdYear(int userId,
+        int salaryYear, boolean retrieveFromCache)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
+    * Removes the salary where userId = &#63; and salaryYear = &#63; from the database.
+    *
+    * @param userId the user ID
+    * @param salaryYear the salary year
+    * @return the salary that was removed
+    * @throws SystemException if a system exception occurred
+    */
+    public com.xebia.xifire.model.Salary removeByUserIdYear(int userId,
+        int salaryYear)
+        throws com.liferay.portal.kernel.exception.SystemException,
+            com.xebia.xifire.NoSuchSalaryException;
+
+    /**
+    * Returns the number of salaries where userId = &#63; and salaryYear = &#63;.
+    *
+    * @param userId the user ID
+    * @param salaryYear the salary year
+    * @return the number of matching salaries
+    * @throws SystemException if a system exception occurred
+    */
+    public int countByUserIdYear(int userId, int salaryYear)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
+    * Returns the salary where userId = &#63; or throws a {@link com.xebia.xifire.NoSuchSalaryException} if it could not be found.
+    *
+    * @param userId the user ID
+    * @return the matching salary
+    * @throws com.xebia.xifire.NoSuchSalaryException if a matching salary could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public com.xebia.xifire.model.Salary findByUserId(int userId)
+        throws com.liferay.portal.kernel.exception.SystemException,
+            com.xebia.xifire.NoSuchSalaryException;
+
+    /**
+    * Returns the salary where userId = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+    *
+    * @param userId the user ID
+    * @return the matching salary, or <code>null</code> if a matching salary could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public com.xebia.xifire.model.Salary fetchByUserId(int userId)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
+    * Returns the salary where userId = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+    *
+    * @param userId the user ID
+    * @param retrieveFromCache whether to use the finder cache
+    * @return the matching salary, or <code>null</code> if a matching salary could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public com.xebia.xifire.model.Salary fetchByUserId(int userId,
+        boolean retrieveFromCache)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
+    * Removes the salary where userId = &#63; from the database.
+    *
+    * @param userId the user ID
+    * @return the salary that was removed
+    * @throws SystemException if a system exception occurred
+    */
+    public com.xebia.xifire.model.Salary removeByUserId(int userId)
+        throws com.liferay.portal.kernel.exception.SystemException,
+            com.xebia.xifire.NoSuchSalaryException;
+
+    /**
+    * Returns the number of salaries where userId = &#63;.
+    *
+    * @param userId the user ID
+    * @return the number of matching salaries
+    * @throws SystemException if a system exception occurred
+    */
+    public int countByUserId(int userId)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
     * Caches the salary in the entity cache if it is enabled.
     *
     * @param salary the salary

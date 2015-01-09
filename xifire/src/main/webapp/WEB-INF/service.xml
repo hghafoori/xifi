@@ -95,6 +95,15 @@
             <finder-column name="salaryMonth"/>
             <finder-column name="salaryYear"/>
         </finder>
+        
+        <finder return-type="Salary" name="UserIdYear" unique="true">
+            <finder-column name="userId"/>
+            <finder-column name="salaryYear"/>
+        </finder>
+        
+        <finder return-type="Salary" name="UserId" unique="true">
+            <finder-column name="userId"/>
+        </finder>
 		
     </entity>
 </service-builder>
