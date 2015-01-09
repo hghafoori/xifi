@@ -13,6 +13,7 @@
     <properties>
         <liferay.auto.deploy.dir>/home/chirag/projects/xifi/xifitomcat/deploy</liferay.auto.deploy.dir>
         <liferay.version>6.2.1</liferay.version>
+	<liferay.maven.plugin.version>6.2.1</liferay.maven.plugin.version>
     </properties>
 
     <dependencies>
@@ -59,5 +60,6 @@
 
   <modules>
     <module>xifire</module>
+    <module>xifi-theme</module>
   </modules>
 </project>
