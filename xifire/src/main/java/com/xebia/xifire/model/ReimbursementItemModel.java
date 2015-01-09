@@ -38,42 +38,42 @@ public interface ReimbursementItemModel extends BaseModel<ReimbursementItem> {
      *
      * @return the primary key of this reimbursement item
      */
-    public int getPrimaryKey();
+    public long getPrimaryKey();
 
     /**
      * Sets the primary key of this reimbursement item.
      *
      * @param primaryKey the primary key of this reimbursement item
      */
-    public void setPrimaryKey(int primaryKey);
+    public void setPrimaryKey(long primaryKey);
 
     /**
      * Returns the ID of this reimbursement item.
      *
      * @return the ID of this reimbursement item
      */
-    public int getId();
+    public long getId();
 
     /**
      * Sets the ID of this reimbursement item.
      *
      * @param id the ID of this reimbursement item
      */
-    public void setId(int id);
+    public void setId(long id);
 
     /**
      * Returns the user reimbursement ID of this reimbursement item.
      *
      * @return the user reimbursement ID of this reimbursement item
      */
-    public int getUserReimbursementId();
+    public long getUserReimbursementId();
 
     /**
      * Sets the user reimbursement ID of this reimbursement item.
      *
      * @param userReimbursementId the user reimbursement ID of this reimbursement item
      */
-    public void setUserReimbursementId(int userReimbursementId);
+    public void setUserReimbursementId(long userReimbursementId);
 
     /**
      * Returns the bill date of this reimbursement item.

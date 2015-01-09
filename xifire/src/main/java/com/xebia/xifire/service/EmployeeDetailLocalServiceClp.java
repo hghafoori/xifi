@@ -59,11 +59,11 @@ public class EmployeeDetailLocalServiceClp implements EmployeeDetailLocalService
 
         _methodName1 = "createEmployeeDetail";
 
-        _methodParameterTypes1 = new String[] { "int" };
+        _methodParameterTypes1 = new String[] { "long" };
 
         _methodName2 = "deleteEmployeeDetail";
 
-        _methodParameterTypes2 = new String[] { "int" };
+        _methodParameterTypes2 = new String[] { "long" };
 
         _methodName3 = "deleteEmployeeDetail";
 
@@ -109,11 +109,11 @@ public class EmployeeDetailLocalServiceClp implements EmployeeDetailLocalService
 
         _methodName10 = "fetchEmployeeDetail";
 
-        _methodParameterTypes10 = new String[] { "int" };
+        _methodParameterTypes10 = new String[] { "long" };
 
         _methodName11 = "getEmployeeDetail";
 
-        _methodParameterTypes11 = new String[] { "int" };
+        _methodParameterTypes11 = new String[] { "long" };
 
         _methodName12 = "getPersistedModel";
 
@@ -175,7 +175,7 @@ public class EmployeeDetailLocalServiceClp implements EmployeeDetailLocalService
     }
 
     @Override
-    public com.xebia.xifire.model.EmployeeDetail createEmployeeDetail(int id) {
+    public com.xebia.xifire.model.EmployeeDetail createEmployeeDetail(long id) {
         Object returnObj = null;
 
         try {
@@ -196,7 +196,7 @@ public class EmployeeDetailLocalServiceClp implements EmployeeDetailLocalService
     }
 
     @Override
-    public com.xebia.xifire.model.EmployeeDetail deleteEmployeeDetail(int id)
+    public com.xebia.xifire.model.EmployeeDetail deleteEmployeeDetail(long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
@@ -440,7 +440,7 @@ public class EmployeeDetailLocalServiceClp implements EmployeeDetailLocalService
     }
 
     @Override
-    public com.xebia.xifire.model.EmployeeDetail fetchEmployeeDetail(int id)
+    public com.xebia.xifire.model.EmployeeDetail fetchEmployeeDetail(long id)
         throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
@@ -466,7 +466,7 @@ public class EmployeeDetailLocalServiceClp implements EmployeeDetailLocalService
     }
 
     @Override
-    public com.xebia.xifire.model.EmployeeDetail getEmployeeDetail(int id)
+    public com.xebia.xifire.model.EmployeeDetail getEmployeeDetail(long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;

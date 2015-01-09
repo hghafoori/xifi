@@ -8,10 +8,10 @@
 	<import class="com.xebia.xifire.model.UserReimbursement" />
 	<class name="com.xebia.xifire.model.impl.EmployeeDetailImpl" table="employee_detail">
 		<cache usage="read-write" />
-		<id name="id" column="id_" type="int">
+		<id name="id" column="id_" type="long">
 			<generator class="assigned" />
 		</id>
-		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="employeeCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="designation" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="location" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -23,10 +23,10 @@
 	</class>
 	<class name="com.xebia.xifire.model.impl.ReimbursementItemImpl" table="reimbursement_item">
 		<cache usage="read-write" />
-		<id name="id" column="id_" type="int">
+		<id name="id" column="id_" type="long">
 			<generator class="assigned" />
 		</id>
-		<property name="userReimbursementId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="userReimbursementId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="billDate" type="org.hibernate.type.TimestampType" />
 		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="billAmount" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
@@ -43,10 +43,10 @@
 	</class>
 	<class name="com.xebia.xifire.model.impl.SalaryImpl" table="salary">
 		<cache usage="read-write" />
-		<id name="id" column="id_" type="int">
+		<id name="id" column="id_" type="long">
 			<generator class="assigned" />
 		</id>
-		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="salaryMonth" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="salaryYear" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="basic" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
@@ -67,12 +67,12 @@
 	</class>
 	<class name="com.xebia.xifire.model.impl.UserReimbursementImpl" table="user_reimbursement">
 		<cache usage="read-write" />
-		<id name="id" column="id_" type="int">
+		<id name="id" column="id_" type="long">
 			<generator class="assigned" />
 		</id>
 		<property name="createDate" type="org.hibernate.type.TimestampType" />
 		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
-		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>

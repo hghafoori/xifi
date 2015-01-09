@@ -108,7 +108,7 @@ public class UserReimbursementUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.UserReimbursement findByUserId(
-        int userId)
+        long userId)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchUserReimbursementException {
         return getPersistence().findByUserId(userId);
@@ -122,7 +122,7 @@ public class UserReimbursementUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.UserReimbursement fetchByUserId(
-        int userId) throws com.liferay.portal.kernel.exception.SystemException {
+        long userId) throws com.liferay.portal.kernel.exception.SystemException {
         return getPersistence().fetchByUserId(userId);
     }
 
@@ -135,7 +135,7 @@ public class UserReimbursementUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.UserReimbursement fetchByUserId(
-        int userId, boolean retrieveFromCache)
+        long userId, boolean retrieveFromCache)
         throws com.liferay.portal.kernel.exception.SystemException {
         return getPersistence().fetchByUserId(userId, retrieveFromCache);
     }
@@ -148,7 +148,7 @@ public class UserReimbursementUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.UserReimbursement removeByUserId(
-        int userId)
+        long userId)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchUserReimbursementException {
         return getPersistence().removeByUserId(userId);
@@ -161,7 +161,7 @@ public class UserReimbursementUtil {
     * @return the number of matching user reimbursements
     * @throws SystemException if a system exception occurred
     */
-    public static int countByUserId(int userId)
+    public static int countByUserId(long userId)
         throws com.liferay.portal.kernel.exception.SystemException {
         return getPersistence().countByUserId(userId);
     }
@@ -192,7 +192,7 @@ public class UserReimbursementUtil {
     * @param id the primary key for the new user reimbursement
     * @return the new user reimbursement
     */
-    public static com.xebia.xifire.model.UserReimbursement create(int id) {
+    public static com.xebia.xifire.model.UserReimbursement create(long id) {
         return getPersistence().create(id);
     }
 
@@ -204,7 +204,7 @@ public class UserReimbursementUtil {
     * @throws com.xebia.xifire.NoSuchUserReimbursementException if a user reimbursement with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public static com.xebia.xifire.model.UserReimbursement remove(int id)
+    public static com.xebia.xifire.model.UserReimbursement remove(long id)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchUserReimbursementException {
         return getPersistence().remove(id);
@@ -225,7 +225,7 @@ public class UserReimbursementUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.UserReimbursement findByPrimaryKey(
-        int id)
+        long id)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchUserReimbursementException {
         return getPersistence().findByPrimaryKey(id);
@@ -239,7 +239,7 @@ public class UserReimbursementUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.UserReimbursement fetchByPrimaryKey(
-        int id) throws com.liferay.portal.kernel.exception.SystemException {
+        long id) throws com.liferay.portal.kernel.exception.SystemException {
         return getPersistence().fetchByPrimaryKey(id);
     }
 

@@ -125,7 +125,7 @@ public class ReimbursementItemUtil {
     * @param id the primary key for the new reimbursement item
     * @return the new reimbursement item
     */
-    public static com.xebia.xifire.model.ReimbursementItem create(int id) {
+    public static com.xebia.xifire.model.ReimbursementItem create(long id) {
         return getPersistence().create(id);
     }
 
@@ -137,7 +137,7 @@ public class ReimbursementItemUtil {
     * @throws com.xebia.xifire.NoSuchReimbursementItemException if a reimbursement item with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public static com.xebia.xifire.model.ReimbursementItem remove(int id)
+    public static com.xebia.xifire.model.ReimbursementItem remove(long id)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchReimbursementItemException {
         return getPersistence().remove(id);
@@ -158,7 +158,7 @@ public class ReimbursementItemUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.ReimbursementItem findByPrimaryKey(
-        int id)
+        long id)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchReimbursementItemException {
         return getPersistence().findByPrimaryKey(id);
@@ -172,7 +172,7 @@ public class ReimbursementItemUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.ReimbursementItem fetchByPrimaryKey(
-        int id) throws com.liferay.portal.kernel.exception.SystemException {
+        long id) throws com.liferay.portal.kernel.exception.SystemException {
         return getPersistence().fetchByPrimaryKey(id);
     }
 

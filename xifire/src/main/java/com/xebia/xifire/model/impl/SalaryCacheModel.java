@@ -18,8 +18,8 @@ import java.io.ObjectOutput;
  * @generated
  */
 public class SalaryCacheModel implements CacheModel<Salary>, Externalizable {
-    public int id;
-    public int userId;
+    public long id;
+    public long userId;
     public int salaryMonth;
     public int salaryYear;
     public int basic;
@@ -116,8 +116,8 @@ public class SalaryCacheModel implements CacheModel<Salary>, Externalizable {
 
     @Override
     public void readExternal(ObjectInput objectInput) throws IOException {
-        id = objectInput.readInt();
-        userId = objectInput.readInt();
+        id = objectInput.readLong();
+        userId = objectInput.readLong();
         salaryMonth = objectInput.readInt();
         salaryYear = objectInput.readInt();
         basic = objectInput.readInt();
@@ -140,8 +140,8 @@ public class SalaryCacheModel implements CacheModel<Salary>, Externalizable {
     @Override
     public void writeExternal(ObjectOutput objectOutput)
         throws IOException {
-        objectOutput.writeInt(id);
-        objectOutput.writeInt(userId);
+        objectOutput.writeLong(id);
+        objectOutput.writeLong(userId);
         objectOutput.writeInt(salaryMonth);
         objectOutput.writeInt(salaryYear);
         objectOutput.writeInt(basic);

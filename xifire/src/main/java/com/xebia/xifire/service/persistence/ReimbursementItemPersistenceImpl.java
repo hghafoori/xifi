@@ -192,7 +192,7 @@ public class ReimbursementItemPersistenceImpl extends BasePersistenceImpl<Reimbu
      * @return the new reimbursement item
      */
     @Override
-    public ReimbursementItem create(int id) {
+    public ReimbursementItem create(long id) {
         ReimbursementItem reimbursementItem = new ReimbursementItemImpl();
 
         reimbursementItem.setNew(true);
@@ -210,7 +210,7 @@ public class ReimbursementItemPersistenceImpl extends BasePersistenceImpl<Reimbu
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public ReimbursementItem remove(int id)
+    public ReimbursementItem remove(long id)
         throws NoSuchReimbursementItemException, SystemException {
         return remove((Serializable) id);
     }
@@ -385,7 +385,7 @@ public class ReimbursementItemPersistenceImpl extends BasePersistenceImpl<Reimbu
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public ReimbursementItem findByPrimaryKey(int id)
+    public ReimbursementItem findByPrimaryKey(long id)
         throws NoSuchReimbursementItemException, SystemException {
         return findByPrimaryKey((Serializable) id);
     }
@@ -444,7 +444,7 @@ public class ReimbursementItemPersistenceImpl extends BasePersistenceImpl<Reimbu
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public ReimbursementItem fetchByPrimaryKey(int id)
+    public ReimbursementItem fetchByPrimaryKey(long id)
         throws SystemException {
         return fetchByPrimaryKey((Serializable) id);
     }

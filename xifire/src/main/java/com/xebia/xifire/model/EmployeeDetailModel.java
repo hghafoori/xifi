@@ -1,6 +1,7 @@
 package com.xebia.xifire.model;
 
 import com.liferay.portal.kernel.bean.AutoEscape;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
@@ -36,42 +37,57 @@ public interface EmployeeDetailModel extends BaseModel<EmployeeDetail> {
      *
      * @return the primary key of this employee detail
      */
-    public int getPrimaryKey();
+    public long getPrimaryKey();
 
     /**
      * Sets the primary key of this employee detail.
      *
      * @param primaryKey the primary key of this employee detail
      */
-    public void setPrimaryKey(int primaryKey);
+    public void setPrimaryKey(long primaryKey);
 
     /**
      * Returns the ID of this employee detail.
      *
      * @return the ID of this employee detail
      */
-    public int getId();
+    public long getId();
 
     /**
      * Sets the ID of this employee detail.
      *
      * @param id the ID of this employee detail
      */
-    public void setId(int id);
+    public void setId(long id);
 
     /**
      * Returns the user ID of this employee detail.
      *
      * @return the user ID of this employee detail
      */
-    public int getUserId();
+    public long getUserId();
 
     /**
      * Sets the user ID of this employee detail.
      *
      * @param userId the user ID of this employee detail
      */
-    public void setUserId(int userId);
+    public void setUserId(long userId);
+
+    /**
+     * Returns the user uuid of this employee detail.
+     *
+     * @return the user uuid of this employee detail
+     * @throws SystemException if a system exception occurred
+     */
+    public String getUserUuid() throws SystemException;
+
+    /**
+     * Sets the user uuid of this employee detail.
+     *
+     * @param userUuid the user uuid of this employee detail
+     */
+    public void setUserUuid(String userUuid);
 
     /**
      * Returns the employee code of this employee detail.

@@ -60,11 +60,11 @@ public class SalaryLocalServiceClp implements SalaryLocalService {
 
         _methodName1 = "createSalary";
 
-        _methodParameterTypes1 = new String[] { "int" };
+        _methodParameterTypes1 = new String[] { "long" };
 
         _methodName2 = "deleteSalary";
 
-        _methodParameterTypes2 = new String[] { "int" };
+        _methodParameterTypes2 = new String[] { "long" };
 
         _methodName3 = "deleteSalary";
 
@@ -108,11 +108,11 @@ public class SalaryLocalServiceClp implements SalaryLocalService {
 
         _methodName10 = "fetchSalary";
 
-        _methodParameterTypes10 = new String[] { "int" };
+        _methodParameterTypes10 = new String[] { "long" };
 
         _methodName11 = "getSalary";
 
-        _methodParameterTypes11 = new String[] { "int" };
+        _methodParameterTypes11 = new String[] { "long" };
 
         _methodName12 = "getPersistedModel";
 
@@ -180,7 +180,7 @@ public class SalaryLocalServiceClp implements SalaryLocalService {
     }
 
     @Override
-    public com.xebia.xifire.model.Salary createSalary(int id) {
+    public com.xebia.xifire.model.Salary createSalary(long id) {
         Object returnObj = null;
 
         try {
@@ -201,7 +201,7 @@ public class SalaryLocalServiceClp implements SalaryLocalService {
     }
 
     @Override
-    public com.xebia.xifire.model.Salary deleteSalary(int id)
+    public com.xebia.xifire.model.Salary deleteSalary(long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
@@ -445,7 +445,7 @@ public class SalaryLocalServiceClp implements SalaryLocalService {
     }
 
     @Override
-    public com.xebia.xifire.model.Salary fetchSalary(int id)
+    public com.xebia.xifire.model.Salary fetchSalary(long id)
         throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
@@ -471,7 +471,7 @@ public class SalaryLocalServiceClp implements SalaryLocalService {
     }
 
     @Override
-    public com.xebia.xifire.model.Salary getSalary(int id)
+    public com.xebia.xifire.model.Salary getSalary(long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;

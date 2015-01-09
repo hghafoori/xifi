@@ -47,7 +47,7 @@ public class EmployeeDetailLocalServiceUtil {
     * @return the new employee detail
     */
     public static com.xebia.xifire.model.EmployeeDetail createEmployeeDetail(
-        int id) {
+        long id) {
         return getService().createEmployeeDetail(id);
     }
 
@@ -60,7 +60,7 @@ public class EmployeeDetailLocalServiceUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.EmployeeDetail deleteEmployeeDetail(
-        int id)
+        long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         return getService().deleteEmployeeDetail(id);
@@ -170,7 +170,7 @@ public class EmployeeDetailLocalServiceUtil {
     }
 
     public static com.xebia.xifire.model.EmployeeDetail fetchEmployeeDetail(
-        int id) throws com.liferay.portal.kernel.exception.SystemException {
+        long id) throws com.liferay.portal.kernel.exception.SystemException {
         return getService().fetchEmployeeDetail(id);
     }
 
@@ -183,7 +183,7 @@ public class EmployeeDetailLocalServiceUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.EmployeeDetail getEmployeeDetail(
-        int id)
+        long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         return getService().getEmployeeDetail(id);

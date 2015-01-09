@@ -2,8 +2,8 @@
 
 <model-hints>
 	<model name="com.xebia.xifire.model.EmployeeDetail">
-		<field name="id" type="int" />
-		<field name="userId" type="int" />
+		<field name="id" type="long" />
+		<field name="userId" type="long" />
 		<field name="employeeCode" type="String" />
 		<field name="designation" type="String" />
 		<field name="location" type="String" />
@@ -14,8 +14,8 @@
 		<field name="panNumber" type="String" />
 	</model>
 	<model name="com.xebia.xifire.model.ReimbursementItem">
-		<field name="id" type="int" />
-		<field name="userReimbursementId" type="int" />
+		<field name="id" type="long" />
+		<field name="userReimbursementId" type="long" />
 		<field name="billDate" type="Date" />
 		<field name="description" type="String" />
 		<field name="billAmount" type="int" />
@@ -23,8 +23,8 @@
 		<field name="document" type="Blob" />
 	</model>
 	<model name="com.xebia.xifire.model.Salary">
-		<field name="id" type="int" />
-		<field name="userId" type="int" />
+		<field name="id" type="long" />
+		<field name="userId" type="long" />
 		<field name="salaryMonth" type="int" />
 		<field name="salaryYear" type="int" />
 		<field name="basic" type="int" />
@@ -44,10 +44,10 @@
 		<field name="otherDeduction" type="int" />
 	</model>
 	<model name="com.xebia.xifire.model.UserReimbursement">
-		<field name="id" type="int" />
+		<field name="id" type="long" />
 		<field name="createDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
-		<field name="userId" type="int" />
+		<field name="userId" type="long" />
 		<field name="description" type="String" />
 		<field name="status" type="String" />
 	</model>

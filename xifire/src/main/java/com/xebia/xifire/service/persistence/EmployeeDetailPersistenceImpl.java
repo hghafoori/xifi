@@ -76,12 +76,12 @@ public class EmployeeDetailPersistenceImpl extends BasePersistenceImpl<EmployeeD
     public static final FinderPath FINDER_PATH_FETCH_BY_USERID = new FinderPath(EmployeeDetailModelImpl.ENTITY_CACHE_ENABLED,
             EmployeeDetailModelImpl.FINDER_CACHE_ENABLED,
             EmployeeDetailImpl.class, FINDER_CLASS_NAME_ENTITY,
-            "fetchByUserId", new String[] { Integer.class.getName() },
+            "fetchByUserId", new String[] { Long.class.getName() },
             EmployeeDetailModelImpl.USERID_COLUMN_BITMASK);
     public static final FinderPath FINDER_PATH_COUNT_BY_USERID = new FinderPath(EmployeeDetailModelImpl.ENTITY_CACHE_ENABLED,
             EmployeeDetailModelImpl.FINDER_CACHE_ENABLED, Long.class,
             FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByUserId",
-            new String[] { Integer.class.getName() });
+            new String[] { Long.class.getName() });
     private static final String _FINDER_COLUMN_USERID_USERID_2 = "employeeDetail.userId = ?";
     private static final String _SQL_SELECT_EMPLOYEEDETAIL = "SELECT employeeDetail FROM EmployeeDetail employeeDetail";
     private static final String _SQL_SELECT_EMPLOYEEDETAIL_WHERE = "SELECT employeeDetail FROM EmployeeDetail employeeDetail WHERE ";
@@ -128,7 +128,7 @@ public class EmployeeDetailPersistenceImpl extends BasePersistenceImpl<EmployeeD
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public EmployeeDetail findByUserId(int userId)
+    public EmployeeDetail findByUserId(long userId)
         throws NoSuchEmployeeDetailException, SystemException {
         EmployeeDetail employeeDetail = fetchByUserId(userId);
 
@@ -160,7 +160,7 @@ public class EmployeeDetailPersistenceImpl extends BasePersistenceImpl<EmployeeD
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public EmployeeDetail fetchByUserId(int userId) throws SystemException {
+    public EmployeeDetail fetchByUserId(long userId) throws SystemException {
         return fetchByUserId(userId, true);
     }
 
@@ -173,7 +173,7 @@ public class EmployeeDetailPersistenceImpl extends BasePersistenceImpl<EmployeeD
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public EmployeeDetail fetchByUserId(int userId, boolean retrieveFromCache)
+    public EmployeeDetail fetchByUserId(long userId, boolean retrieveFromCache)
         throws SystemException {
         Object[] finderArgs = new Object[] { userId };
 
@@ -254,7 +254,7 @@ public class EmployeeDetailPersistenceImpl extends BasePersistenceImpl<EmployeeD
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public EmployeeDetail removeByUserId(int userId)
+    public EmployeeDetail removeByUserId(long userId)
         throws NoSuchEmployeeDetailException, SystemException {
         EmployeeDetail employeeDetail = findByUserId(userId);
 
@@ -269,7 +269,7 @@ public class EmployeeDetailPersistenceImpl extends BasePersistenceImpl<EmployeeD
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public int countByUserId(int userId) throws SystemException {
+    public int countByUserId(long userId) throws SystemException {
         FinderPath finderPath = FINDER_PATH_COUNT_BY_USERID;
 
         Object[] finderArgs = new Object[] { userId };
@@ -445,7 +445,7 @@ public class EmployeeDetailPersistenceImpl extends BasePersistenceImpl<EmployeeD
      * @return the new employee detail
      */
     @Override
-    public EmployeeDetail create(int id) {
+    public EmployeeDetail create(long id) {
         EmployeeDetail employeeDetail = new EmployeeDetailImpl();
 
         employeeDetail.setNew(true);
@@ -463,7 +463,7 @@ public class EmployeeDetailPersistenceImpl extends BasePersistenceImpl<EmployeeD
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public EmployeeDetail remove(int id)
+    public EmployeeDetail remove(long id)
         throws NoSuchEmployeeDetailException, SystemException {
         return remove((Serializable) id);
     }
@@ -637,7 +637,7 @@ public class EmployeeDetailPersistenceImpl extends BasePersistenceImpl<EmployeeD
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public EmployeeDetail findByPrimaryKey(int id)
+    public EmployeeDetail findByPrimaryKey(long id)
         throws NoSuchEmployeeDetailException, SystemException {
         return findByPrimaryKey((Serializable) id);
     }
@@ -696,7 +696,7 @@ public class EmployeeDetailPersistenceImpl extends BasePersistenceImpl<EmployeeD
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public EmployeeDetail fetchByPrimaryKey(int id) throws SystemException {
+    public EmployeeDetail fetchByPrimaryKey(long id) throws SystemException {
         return fetchByPrimaryKey((Serializable) id);
     }
 

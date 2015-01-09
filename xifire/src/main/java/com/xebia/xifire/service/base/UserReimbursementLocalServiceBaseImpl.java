@@ -104,7 +104,7 @@ public abstract class UserReimbursementLocalServiceBaseImpl
      * @return the new user reimbursement
      */
     @Override
-    public UserReimbursement createUserReimbursement(int id) {
+    public UserReimbursement createUserReimbursement(long id) {
         return userReimbursementPersistence.create(id);
     }
 
@@ -118,7 +118,7 @@ public abstract class UserReimbursementLocalServiceBaseImpl
      */
     @Indexable(type = IndexableType.DELETE)
     @Override
-    public UserReimbursement deleteUserReimbursement(int id)
+    public UserReimbursement deleteUserReimbursement(long id)
         throws PortalException, SystemException {
         return userReimbursementPersistence.remove(id);
     }
@@ -231,7 +231,7 @@ public abstract class UserReimbursementLocalServiceBaseImpl
     }
 
     @Override
-    public UserReimbursement fetchUserReimbursement(int id)
+    public UserReimbursement fetchUserReimbursement(long id)
         throws SystemException {
         return userReimbursementPersistence.fetchByPrimaryKey(id);
     }
@@ -245,7 +245,7 @@ public abstract class UserReimbursementLocalServiceBaseImpl
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public UserReimbursement getUserReimbursement(int id)
+    public UserReimbursement getUserReimbursement(long id)
         throws PortalException, SystemException {
         return userReimbursementPersistence.findByPrimaryKey(id);
     }

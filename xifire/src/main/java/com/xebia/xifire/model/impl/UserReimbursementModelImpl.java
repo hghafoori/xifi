@@ -1,12 +1,18 @@
 package com.xebia.xifire.model.impl;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.impl.BaseModelImpl;
+import com.liferay.portal.service.ServiceContext;
+import com.liferay.portal.util.PortalUtil;
+
+import com.liferay.portlet.expando.model.ExpandoBridge;
+import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
 
 import com.xebia.xifire.model.UserReimbursement;
 import com.xebia.xifire.model.UserReimbursementModel;
@@ -41,14 +47,14 @@ public class UserReimbursementModelImpl extends BaseModelImpl<UserReimbursement>
      */
     public static final String TABLE_NAME = "user_reimbursement";
     public static final Object[][] TABLE_COLUMNS = {
-            { "id_", Types.INTEGER },
+            { "id_", Types.BIGINT },
             { "createDate", Types.TIMESTAMP },
             { "modifiedDate", Types.TIMESTAMP },
-            { "userId", Types.INTEGER },
+            { "userId", Types.BIGINT },
             { "description", Types.VARCHAR },
             { "status", Types.VARCHAR }
         };
-    public static final String TABLE_SQL_CREATE = "create table user_reimbursement (id_ INTEGER not null primary key,createDate DATE null,modifiedDate DATE null,userId INTEGER,description VARCHAR(75) null,status VARCHAR(75) null)";
+    public static final String TABLE_SQL_CREATE = "create table user_reimbursement (id_ LONG not null primary key,createDate DATE null,modifiedDate DATE null,userId LONG,description VARCHAR(75) null,status VARCHAR(75) null)";
     public static final String TABLE_SQL_DROP = "drop table user_reimbursement";
     public static final String ORDER_BY_JPQL = " ORDER BY userReimbursement.id ASC";
     public static final String ORDER_BY_SQL = " ORDER BY user_reimbursement.id_ ASC";
@@ -72,11 +78,12 @@ public class UserReimbursementModelImpl extends BaseModelImpl<UserReimbursement>
     private static Class<?>[] _escapedModelInterfaces = new Class[] {
             UserReimbursement.class
         };
-    private int _id;
+    private long _id;
     private Date _createDate;
     private Date _modifiedDate;
-    private int _userId;
-    private int _originalUserId;
+    private long _userId;
+    private String _userUuid;
+    private long _originalUserId;
     private boolean _setOriginalUserId;
     private String _description;
     private String _status;
@@ -87,12 +94,12 @@ public class UserReimbursementModelImpl extends BaseModelImpl<UserReimbursement>
     }
 
     @Override
-    public int getPrimaryKey() {
+    public long getPrimaryKey() {
         return _id;
     }
 
     @Override
-    public void setPrimaryKey(int primaryKey) {
+    public void setPrimaryKey(long primaryKey) {
         setId(primaryKey);
     }
 
@@ -103,7 +110,7 @@ public class UserReimbursementModelImpl extends BaseModelImpl<UserReimbursement>
 
     @Override
     public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-        setPrimaryKey(((Integer) primaryKeyObj).intValue());
+        setPrimaryKey(((Long) primaryKeyObj).longValue());
     }
 
     @Override
@@ -132,7 +139,7 @@ public class UserReimbursementModelImpl extends BaseModelImpl<UserReimbursement>
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        Integer id = (Integer) attributes.get("id");
+        Long id = (Long) attributes.get("id");
 
         if (id != null) {
             setId(id);
@@ -150,7 +157,7 @@ public class UserReimbursementModelImpl extends BaseModelImpl<UserReimbursement>
             setModifiedDate(modifiedDate);
         }
 
-        Integer userId = (Integer) attributes.get("userId");
+        Long userId = (Long) attributes.get("userId");
 
         if (userId != null) {
             setUserId(userId);
@@ -170,12 +177,12 @@ public class UserReimbursementModelImpl extends BaseModelImpl<UserReimbursement>
     }
 
     @Override
-    public int getId() {
+    public long getId() {
         return _id;
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(long id) {
         _id = id;
     }
 
@@ -200,12 +207,12 @@ public class UserReimbursementModelImpl extends BaseModelImpl<UserReimbursement>
     }
 
     @Override
-    public int getUserId() {
+    public long getUserId() {
         return _userId;
     }
 
     @Override
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
@@ -217,7 +224,17 @@ public class UserReimbursementModelImpl extends BaseModelImpl<UserReimbursement>
         _userId = userId;
     }
 
-    public int getOriginalUserId() {
+    @Override
+    public String getUserUuid() throws SystemException {
+        return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
+    }
+
+    @Override
+    public void setUserUuid(String userUuid) {
+        _userUuid = userUuid;
+    }
+
+    public long getOriginalUserId() {
         return _originalUserId;
     }
 
@@ -254,6 +271,19 @@ public class UserReimbursementModelImpl extends BaseModelImpl<UserReimbursement>
     }
 
     @Override
+    public ExpandoBridge getExpandoBridge() {
+        return ExpandoBridgeFactoryUtil.getExpandoBridge(0,
+            UserReimbursement.class.getName(), getPrimaryKey());
+    }
+
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
+        ExpandoBridge expandoBridge = getExpandoBridge();
+
+        expandoBridge.setAttributes(serviceContext);
+    }
+
+    @Override
     public UserReimbursement toEscapedModel() {
         if (_escapedModel == null) {
             _escapedModel = (UserReimbursement) ProxyUtil.newProxyInstance(_classLoader,
@@ -281,7 +311,7 @@ public class UserReimbursementModelImpl extends BaseModelImpl<UserReimbursement>
 
     @Override
     public int compareTo(UserReimbursement userReimbursement) {
-        int primaryKey = userReimbursement.getPrimaryKey();
+        long primaryKey = userReimbursement.getPrimaryKey();
 
         if (getPrimaryKey() < primaryKey) {
             return -1;
@@ -304,7 +334,7 @@ public class UserReimbursementModelImpl extends BaseModelImpl<UserReimbursement>
 
         UserReimbursement userReimbursement = (UserReimbursement) obj;
 
-        int primaryKey = userReimbursement.getPrimaryKey();
+        long primaryKey = userReimbursement.getPrimaryKey();
 
         if (getPrimaryKey() == primaryKey) {
             return true;
@@ -315,7 +345,7 @@ public class UserReimbursementModelImpl extends BaseModelImpl<UserReimbursement>
 
     @Override
     public int hashCode() {
-        return getPrimaryKey();
+        return (int) getPrimaryKey();
     }
 
     @Override

@@ -45,7 +45,7 @@ public interface ReimbursementItemPersistence extends BasePersistence<Reimbursem
     * @param id the primary key for the new reimbursement item
     * @return the new reimbursement item
     */
-    public com.xebia.xifire.model.ReimbursementItem create(int id);
+    public com.xebia.xifire.model.ReimbursementItem create(long id);
 
     /**
     * Removes the reimbursement item with the primary key from the database. Also notifies the appropriate model listeners.
@@ -55,7 +55,7 @@ public interface ReimbursementItemPersistence extends BasePersistence<Reimbursem
     * @throws com.xebia.xifire.NoSuchReimbursementItemException if a reimbursement item with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.ReimbursementItem remove(int id)
+    public com.xebia.xifire.model.ReimbursementItem remove(long id)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchReimbursementItemException;
 
@@ -71,7 +71,7 @@ public interface ReimbursementItemPersistence extends BasePersistence<Reimbursem
     * @throws com.xebia.xifire.NoSuchReimbursementItemException if a reimbursement item with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.ReimbursementItem findByPrimaryKey(int id)
+    public com.xebia.xifire.model.ReimbursementItem findByPrimaryKey(long id)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchReimbursementItemException;
 
@@ -82,7 +82,7 @@ public interface ReimbursementItemPersistence extends BasePersistence<Reimbursem
     * @return the reimbursement item, or <code>null</code> if a reimbursement item with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.ReimbursementItem fetchByPrimaryKey(int id)
+    public com.xebia.xifire.model.ReimbursementItem fetchByPrimaryKey(long id)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**

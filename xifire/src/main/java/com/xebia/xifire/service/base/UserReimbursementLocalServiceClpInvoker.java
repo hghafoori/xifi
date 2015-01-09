@@ -57,11 +57,11 @@ public class UserReimbursementLocalServiceClpInvoker {
 
         _methodName1 = "createUserReimbursement";
 
-        _methodParameterTypes1 = new String[] { "int" };
+        _methodParameterTypes1 = new String[] { "long" };
 
         _methodName2 = "deleteUserReimbursement";
 
-        _methodParameterTypes2 = new String[] { "int" };
+        _methodParameterTypes2 = new String[] { "long" };
 
         _methodName3 = "deleteUserReimbursement";
 
@@ -107,11 +107,11 @@ public class UserReimbursementLocalServiceClpInvoker {
 
         _methodName10 = "fetchUserReimbursement";
 
-        _methodParameterTypes10 = new String[] { "int" };
+        _methodParameterTypes10 = new String[] { "long" };
 
         _methodName11 = "getUserReimbursement";
 
-        _methodParameterTypes11 = new String[] { "int" };
+        _methodParameterTypes11 = new String[] { "long" };
 
         _methodName12 = "getPersistedModel";
 
@@ -153,12 +153,12 @@ public class UserReimbursementLocalServiceClpInvoker {
 
         if (_methodName1.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes1, parameterTypes)) {
-            return UserReimbursementLocalServiceUtil.createUserReimbursement(((Integer) arguments[0]).intValue());
+            return UserReimbursementLocalServiceUtil.createUserReimbursement(((Long) arguments[0]).longValue());
         }
 
         if (_methodName2.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes2, parameterTypes)) {
-            return UserReimbursementLocalServiceUtil.deleteUserReimbursement(((Integer) arguments[0]).intValue());
+            return UserReimbursementLocalServiceUtil.deleteUserReimbursement(((Long) arguments[0]).longValue());
         }
 
         if (_methodName3.equals(name) &&
@@ -204,12 +204,12 @@ public class UserReimbursementLocalServiceClpInvoker {
 
         if (_methodName10.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes10, parameterTypes)) {
-            return UserReimbursementLocalServiceUtil.fetchUserReimbursement(((Integer) arguments[0]).intValue());
+            return UserReimbursementLocalServiceUtil.fetchUserReimbursement(((Long) arguments[0]).longValue());
         }
 
         if (_methodName11.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes11, parameterTypes)) {
-            return UserReimbursementLocalServiceUtil.getUserReimbursement(((Integer) arguments[0]).intValue());
+            return UserReimbursementLocalServiceUtil.getUserReimbursement(((Long) arguments[0]).longValue());
         }
 
         if (_methodName12.equals(name) &&

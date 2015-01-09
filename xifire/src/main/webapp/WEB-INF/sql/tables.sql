@@ -1,6 +1,6 @@
 create table employee_detail (
-	id_ INTEGER not null primary key,
-	userId INTEGER,
+	id_ LONG not null primary key,
+	userId LONG,
 	employeeCode VARCHAR(75) null,
 	designation VARCHAR(75) null,
 	location VARCHAR(75) null,
@@ -12,8 +12,8 @@ create table employee_detail (
 );
 
 create table reimbursement_item (
-	id_ INTEGER not null primary key,
-	userReimbursementId INTEGER,
+	id_ LONG not null primary key,
+	userReimbursementId LONG,
 	billDate DATE null,
 	description VARCHAR(75) null,
 	billAmount INTEGER,
@@ -22,8 +22,8 @@ create table reimbursement_item (
 );
 
 create table salary (
-	id_ INTEGER not null primary key,
-	userId INTEGER,
+	id_ LONG not null primary key,
+	userId LONG,
 	salaryMonth INTEGER,
 	salaryYear INTEGER,
 	basic INTEGER,
@@ -44,10 +44,10 @@ create table salary (
 );
 
 create table user_reimbursement (
-	id_ INTEGER not null primary key,
+	id_ LONG not null primary key,
 	createDate DATE null,
 	modifiedDate DATE null,
-	userId INTEGER,
+	userId LONG,
 	description VARCHAR(75) null,
 	status VARCHAR(75) null
 );

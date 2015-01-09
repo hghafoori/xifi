@@ -47,7 +47,7 @@ public class ReimbursementItemLocalServiceUtil {
     * @return the new reimbursement item
     */
     public static com.xebia.xifire.model.ReimbursementItem createReimbursementItem(
-        int id) {
+        long id) {
         return getService().createReimbursementItem(id);
     }
 
@@ -60,7 +60,7 @@ public class ReimbursementItemLocalServiceUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.ReimbursementItem deleteReimbursementItem(
-        int id)
+        long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         return getService().deleteReimbursementItem(id);
@@ -170,7 +170,7 @@ public class ReimbursementItemLocalServiceUtil {
     }
 
     public static com.xebia.xifire.model.ReimbursementItem fetchReimbursementItem(
-        int id) throws com.liferay.portal.kernel.exception.SystemException {
+        long id) throws com.liferay.portal.kernel.exception.SystemException {
         return getService().fetchReimbursementItem(id);
     }
 
@@ -183,7 +183,7 @@ public class ReimbursementItemLocalServiceUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.ReimbursementItem getReimbursementItem(
-        int id)
+        long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         return getService().getReimbursementItem(id);

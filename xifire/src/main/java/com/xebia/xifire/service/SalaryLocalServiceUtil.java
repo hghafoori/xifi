@@ -46,7 +46,7 @@ public class SalaryLocalServiceUtil {
     * @param id the primary key for the new salary
     * @return the new salary
     */
-    public static com.xebia.xifire.model.Salary createSalary(int id) {
+    public static com.xebia.xifire.model.Salary createSalary(long id) {
         return getService().createSalary(id);
     }
 
@@ -58,7 +58,7 @@ public class SalaryLocalServiceUtil {
     * @throws PortalException if a salary with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public static com.xebia.xifire.model.Salary deleteSalary(int id)
+    public static com.xebia.xifire.model.Salary deleteSalary(long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         return getService().deleteSalary(id);
@@ -167,7 +167,7 @@ public class SalaryLocalServiceUtil {
         return getService().dynamicQueryCount(dynamicQuery, projection);
     }
 
-    public static com.xebia.xifire.model.Salary fetchSalary(int id)
+    public static com.xebia.xifire.model.Salary fetchSalary(long id)
         throws com.liferay.portal.kernel.exception.SystemException {
         return getService().fetchSalary(id);
     }
@@ -180,7 +180,7 @@ public class SalaryLocalServiceUtil {
     * @throws PortalException if a salary with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public static com.xebia.xifire.model.Salary getSalary(int id)
+    public static com.xebia.xifire.model.Salary getSalary(long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         return getService().getSalary(id);

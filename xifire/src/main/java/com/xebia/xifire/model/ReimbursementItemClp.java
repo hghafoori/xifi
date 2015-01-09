@@ -23,8 +23,8 @@ import java.util.Map;
 
 public class ReimbursementItemClp extends BaseModelImpl<ReimbursementItem>
     implements ReimbursementItem {
-    private int _id;
-    private int _userReimbursementId;
+    private long _id;
+    private long _userReimbursementId;
     private Date _billDate;
     private String _description;
     private int _billAmount;
@@ -46,12 +46,12 @@ public class ReimbursementItemClp extends BaseModelImpl<ReimbursementItem>
     }
 
     @Override
-    public int getPrimaryKey() {
+    public long getPrimaryKey() {
         return _id;
     }
 
     @Override
-    public void setPrimaryKey(int primaryKey) {
+    public void setPrimaryKey(long primaryKey) {
         setId(primaryKey);
     }
 
@@ -62,7 +62,7 @@ public class ReimbursementItemClp extends BaseModelImpl<ReimbursementItem>
 
     @Override
     public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-        setPrimaryKey(((Integer) primaryKeyObj).intValue());
+        setPrimaryKey(((Long) primaryKeyObj).longValue());
     }
 
     @Override
@@ -82,14 +82,13 @@ public class ReimbursementItemClp extends BaseModelImpl<ReimbursementItem>
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        Integer id = (Integer) attributes.get("id");
+        Long id = (Long) attributes.get("id");
 
         if (id != null) {
             setId(id);
         }
 
-        Integer userReimbursementId = (Integer) attributes.get(
-                "userReimbursementId");
+        Long userReimbursementId = (Long) attributes.get("userReimbursementId");
 
         if (userReimbursementId != null) {
             setUserReimbursementId(userReimbursementId);
@@ -127,19 +126,19 @@ public class ReimbursementItemClp extends BaseModelImpl<ReimbursementItem>
     }
 
     @Override
-    public int getId() {
+    public long getId() {
         return _id;
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(long id) {
         _id = id;
 
         if (_reimbursementItemRemoteModel != null) {
             try {
                 Class<?> clazz = _reimbursementItemRemoteModel.getClass();
 
-                Method method = clazz.getMethod("setId", int.class);
+                Method method = clazz.getMethod("setId", long.class);
 
                 method.invoke(_reimbursementItemRemoteModel, id);
             } catch (Exception e) {
@@ -149,12 +148,12 @@ public class ReimbursementItemClp extends BaseModelImpl<ReimbursementItem>
     }
 
     @Override
-    public int getUserReimbursementId() {
+    public long getUserReimbursementId() {
         return _userReimbursementId;
     }
 
     @Override
-    public void setUserReimbursementId(int userReimbursementId) {
+    public void setUserReimbursementId(long userReimbursementId) {
         _userReimbursementId = userReimbursementId;
 
         if (_reimbursementItemRemoteModel != null) {
@@ -162,7 +161,7 @@ public class ReimbursementItemClp extends BaseModelImpl<ReimbursementItem>
                 Class<?> clazz = _reimbursementItemRemoteModel.getClass();
 
                 Method method = clazz.getMethod("setUserReimbursementId",
-                        int.class);
+                        long.class);
 
                 method.invoke(_reimbursementItemRemoteModel, userReimbursementId);
             } catch (Exception e) {
@@ -363,7 +362,7 @@ public class ReimbursementItemClp extends BaseModelImpl<ReimbursementItem>
 
     @Override
     public int compareTo(ReimbursementItem reimbursementItem) {
-        int primaryKey = reimbursementItem.getPrimaryKey();
+        long primaryKey = reimbursementItem.getPrimaryKey();
 
         if (getPrimaryKey() < primaryKey) {
             return -1;
@@ -386,7 +385,7 @@ public class ReimbursementItemClp extends BaseModelImpl<ReimbursementItem>
 
         ReimbursementItemClp reimbursementItem = (ReimbursementItemClp) obj;
 
-        int primaryKey = reimbursementItem.getPrimaryKey();
+        long primaryKey = reimbursementItem.getPrimaryKey();
 
         if (getPrimaryKey() == primaryKey) {
             return true;
@@ -397,7 +396,7 @@ public class ReimbursementItemClp extends BaseModelImpl<ReimbursementItem>
 
     @Override
     public int hashCode() {
-        return getPrimaryKey();
+        return (int) getPrimaryKey();
     }
 
     @Override

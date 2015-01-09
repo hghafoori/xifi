@@ -1,12 +1,18 @@
 package com.xebia.xifire.model.impl;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.impl.BaseModelImpl;
+import com.liferay.portal.service.ServiceContext;
+import com.liferay.portal.util.PortalUtil;
+
+import com.liferay.portlet.expando.model.ExpandoBridge;
+import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
 
 import com.xebia.xifire.model.EmployeeDetail;
 import com.xebia.xifire.model.EmployeeDetailModel;
@@ -41,8 +47,8 @@ public class EmployeeDetailModelImpl extends BaseModelImpl<EmployeeDetail>
      */
     public static final String TABLE_NAME = "employee_detail";
     public static final Object[][] TABLE_COLUMNS = {
-            { "id_", Types.INTEGER },
-            { "userId", Types.INTEGER },
+            { "id_", Types.BIGINT },
+            { "userId", Types.BIGINT },
             { "employeeCode", Types.VARCHAR },
             { "designation", Types.VARCHAR },
             { "location", Types.VARCHAR },
@@ -52,7 +58,7 @@ public class EmployeeDetailModelImpl extends BaseModelImpl<EmployeeDetail>
             { "bankAccount", Types.VARCHAR },
             { "panNumber", Types.VARCHAR }
         };
-    public static final String TABLE_SQL_CREATE = "create table employee_detail (id_ INTEGER not null primary key,userId INTEGER,employeeCode VARCHAR(75) null,designation VARCHAR(75) null,location VARCHAR(75) null,department VARCHAR(75) null,pfNumber VARCHAR(75) null,doj DATE null,bankAccount VARCHAR(75) null,panNumber VARCHAR(75) null)";
+    public static final String TABLE_SQL_CREATE = "create table employee_detail (id_ LONG not null primary key,userId LONG,employeeCode VARCHAR(75) null,designation VARCHAR(75) null,location VARCHAR(75) null,department VARCHAR(75) null,pfNumber VARCHAR(75) null,doj DATE null,bankAccount VARCHAR(75) null,panNumber VARCHAR(75) null)";
     public static final String TABLE_SQL_DROP = "drop table employee_detail";
     public static final String ORDER_BY_JPQL = " ORDER BY employeeDetail.id ASC";
     public static final String ORDER_BY_SQL = " ORDER BY employee_detail.id_ ASC";
@@ -76,9 +82,10 @@ public class EmployeeDetailModelImpl extends BaseModelImpl<EmployeeDetail>
     private static Class<?>[] _escapedModelInterfaces = new Class[] {
             EmployeeDetail.class
         };
-    private int _id;
-    private int _userId;
-    private int _originalUserId;
+    private long _id;
+    private long _userId;
+    private String _userUuid;
+    private long _originalUserId;
     private boolean _setOriginalUserId;
     private String _employeeCode;
     private String _designation;
@@ -95,12 +102,12 @@ public class EmployeeDetailModelImpl extends BaseModelImpl<EmployeeDetail>
     }
 
     @Override
-    public int getPrimaryKey() {
+    public long getPrimaryKey() {
         return _id;
     }
 
     @Override
-    public void setPrimaryKey(int primaryKey) {
+    public void setPrimaryKey(long primaryKey) {
         setId(primaryKey);
     }
 
@@ -111,7 +118,7 @@ public class EmployeeDetailModelImpl extends BaseModelImpl<EmployeeDetail>
 
     @Override
     public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-        setPrimaryKey(((Integer) primaryKeyObj).intValue());
+        setPrimaryKey(((Long) primaryKeyObj).longValue());
     }
 
     @Override
@@ -144,13 +151,13 @@ public class EmployeeDetailModelImpl extends BaseModelImpl<EmployeeDetail>
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        Integer id = (Integer) attributes.get("id");
+        Long id = (Long) attributes.get("id");
 
         if (id != null) {
             setId(id);
         }
 
-        Integer userId = (Integer) attributes.get("userId");
+        Long userId = (Long) attributes.get("userId");
 
         if (userId != null) {
             setUserId(userId);
@@ -206,22 +213,22 @@ public class EmployeeDetailModelImpl extends BaseModelImpl<EmployeeDetail>
     }
 
     @Override
-    public int getId() {
+    public long getId() {
         return _id;
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(long id) {
         _id = id;
     }
 
     @Override
-    public int getUserId() {
+    public long getUserId() {
         return _userId;
     }
 
     @Override
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
@@ -233,7 +240,17 @@ public class EmployeeDetailModelImpl extends BaseModelImpl<EmployeeDetail>
         _userId = userId;
     }
 
-    public int getOriginalUserId() {
+    @Override
+    public String getUserUuid() throws SystemException {
+        return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
+    }
+
+    @Override
+    public void setUserUuid(String userUuid) {
+        _userUuid = userUuid;
+    }
+
+    public long getOriginalUserId() {
         return _originalUserId;
     }
 
@@ -350,6 +367,19 @@ public class EmployeeDetailModelImpl extends BaseModelImpl<EmployeeDetail>
     }
 
     @Override
+    public ExpandoBridge getExpandoBridge() {
+        return ExpandoBridgeFactoryUtil.getExpandoBridge(0,
+            EmployeeDetail.class.getName(), getPrimaryKey());
+    }
+
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
+        ExpandoBridge expandoBridge = getExpandoBridge();
+
+        expandoBridge.setAttributes(serviceContext);
+    }
+
+    @Override
     public EmployeeDetail toEscapedModel() {
         if (_escapedModel == null) {
             _escapedModel = (EmployeeDetail) ProxyUtil.newProxyInstance(_classLoader,
@@ -381,7 +411,7 @@ public class EmployeeDetailModelImpl extends BaseModelImpl<EmployeeDetail>
 
     @Override
     public int compareTo(EmployeeDetail employeeDetail) {
-        int primaryKey = employeeDetail.getPrimaryKey();
+        long primaryKey = employeeDetail.getPrimaryKey();
 
         if (getPrimaryKey() < primaryKey) {
             return -1;
@@ -404,7 +434,7 @@ public class EmployeeDetailModelImpl extends BaseModelImpl<EmployeeDetail>
 
         EmployeeDetail employeeDetail = (EmployeeDetail) obj;
 
-        int primaryKey = employeeDetail.getPrimaryKey();
+        long primaryKey = employeeDetail.getPrimaryKey();
 
         if (getPrimaryKey() == primaryKey) {
             return true;
@@ -415,7 +445,7 @@ public class EmployeeDetailModelImpl extends BaseModelImpl<EmployeeDetail>
 
     @Override
     public int hashCode() {
-        return getPrimaryKey();
+        return (int) getPrimaryKey();
     }
 
     @Override

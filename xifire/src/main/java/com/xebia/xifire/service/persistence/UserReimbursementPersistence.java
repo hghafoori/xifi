@@ -31,7 +31,7 @@ public interface UserReimbursementPersistence extends BasePersistence<UserReimbu
     * @throws com.xebia.xifire.NoSuchUserReimbursementException if a matching user reimbursement could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.UserReimbursement findByUserId(int userId)
+    public com.xebia.xifire.model.UserReimbursement findByUserId(long userId)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchUserReimbursementException;
 
@@ -42,7 +42,7 @@ public interface UserReimbursementPersistence extends BasePersistence<UserReimbu
     * @return the matching user reimbursement, or <code>null</code> if a matching user reimbursement could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.UserReimbursement fetchByUserId(int userId)
+    public com.xebia.xifire.model.UserReimbursement fetchByUserId(long userId)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**
@@ -53,7 +53,7 @@ public interface UserReimbursementPersistence extends BasePersistence<UserReimbu
     * @return the matching user reimbursement, or <code>null</code> if a matching user reimbursement could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.UserReimbursement fetchByUserId(int userId,
+    public com.xebia.xifire.model.UserReimbursement fetchByUserId(long userId,
         boolean retrieveFromCache)
         throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -64,7 +64,7 @@ public interface UserReimbursementPersistence extends BasePersistence<UserReimbu
     * @return the user reimbursement that was removed
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.UserReimbursement removeByUserId(int userId)
+    public com.xebia.xifire.model.UserReimbursement removeByUserId(long userId)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchUserReimbursementException;
 
@@ -75,7 +75,7 @@ public interface UserReimbursementPersistence extends BasePersistence<UserReimbu
     * @return the number of matching user reimbursements
     * @throws SystemException if a system exception occurred
     */
-    public int countByUserId(int userId)
+    public int countByUserId(long userId)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**
@@ -100,7 +100,7 @@ public interface UserReimbursementPersistence extends BasePersistence<UserReimbu
     * @param id the primary key for the new user reimbursement
     * @return the new user reimbursement
     */
-    public com.xebia.xifire.model.UserReimbursement create(int id);
+    public com.xebia.xifire.model.UserReimbursement create(long id);
 
     /**
     * Removes the user reimbursement with the primary key from the database. Also notifies the appropriate model listeners.
@@ -110,7 +110,7 @@ public interface UserReimbursementPersistence extends BasePersistence<UserReimbu
     * @throws com.xebia.xifire.NoSuchUserReimbursementException if a user reimbursement with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.UserReimbursement remove(int id)
+    public com.xebia.xifire.model.UserReimbursement remove(long id)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchUserReimbursementException;
 
@@ -126,7 +126,7 @@ public interface UserReimbursementPersistence extends BasePersistence<UserReimbu
     * @throws com.xebia.xifire.NoSuchUserReimbursementException if a user reimbursement with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.UserReimbursement findByPrimaryKey(int id)
+    public com.xebia.xifire.model.UserReimbursement findByPrimaryKey(long id)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchUserReimbursementException;
 
@@ -137,7 +137,7 @@ public interface UserReimbursementPersistence extends BasePersistence<UserReimbu
     * @return the user reimbursement, or <code>null</code> if a user reimbursement with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.UserReimbursement fetchByPrimaryKey(int id)
+    public com.xebia.xifire.model.UserReimbursement fetchByPrimaryKey(long id)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**

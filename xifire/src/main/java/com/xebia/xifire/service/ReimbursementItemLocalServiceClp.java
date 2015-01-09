@@ -60,11 +60,11 @@ public class ReimbursementItemLocalServiceClp
 
         _methodName1 = "createReimbursementItem";
 
-        _methodParameterTypes1 = new String[] { "int" };
+        _methodParameterTypes1 = new String[] { "long" };
 
         _methodName2 = "deleteReimbursementItem";
 
-        _methodParameterTypes2 = new String[] { "int" };
+        _methodParameterTypes2 = new String[] { "long" };
 
         _methodName3 = "deleteReimbursementItem";
 
@@ -110,11 +110,11 @@ public class ReimbursementItemLocalServiceClp
 
         _methodName10 = "fetchReimbursementItem";
 
-        _methodParameterTypes10 = new String[] { "int" };
+        _methodParameterTypes10 = new String[] { "long" };
 
         _methodName11 = "getReimbursementItem";
 
-        _methodParameterTypes11 = new String[] { "int" };
+        _methodParameterTypes11 = new String[] { "long" };
 
         _methodName12 = "getPersistedModel";
 
@@ -178,7 +178,7 @@ public class ReimbursementItemLocalServiceClp
 
     @Override
     public com.xebia.xifire.model.ReimbursementItem createReimbursementItem(
-        int id) {
+        long id) {
         Object returnObj = null;
 
         try {
@@ -200,7 +200,7 @@ public class ReimbursementItemLocalServiceClp
 
     @Override
     public com.xebia.xifire.model.ReimbursementItem deleteReimbursementItem(
-        int id)
+        long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
@@ -446,7 +446,7 @@ public class ReimbursementItemLocalServiceClp
 
     @Override
     public com.xebia.xifire.model.ReimbursementItem fetchReimbursementItem(
-        int id) throws com.liferay.portal.kernel.exception.SystemException {
+        long id) throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
         try {
@@ -471,7 +471,8 @@ public class ReimbursementItemLocalServiceClp
     }
 
     @Override
-    public com.xebia.xifire.model.ReimbursementItem getReimbursementItem(int id)
+    public com.xebia.xifire.model.ReimbursementItem getReimbursementItem(
+        long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;

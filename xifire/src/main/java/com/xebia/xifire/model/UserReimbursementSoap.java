@@ -13,10 +13,10 @@ import java.util.List;
  * @generated
  */
 public class UserReimbursementSoap implements Serializable {
-    private int _id;
+    private long _id;
     private Date _createDate;
     private Date _modifiedDate;
-    private int _userId;
+    private long _userId;
     private String _description;
     private String _status;
 
@@ -75,19 +75,19 @@ public class UserReimbursementSoap implements Serializable {
         return soapModels.toArray(new UserReimbursementSoap[soapModels.size()]);
     }
 
-    public int getPrimaryKey() {
+    public long getPrimaryKey() {
         return _id;
     }
 
-    public void setPrimaryKey(int pk) {
+    public void setPrimaryKey(long pk) {
         setId(pk);
     }
 
-    public int getId() {
+    public long getId() {
         return _id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         _id = id;
     }
 
@@ -107,11 +107,11 @@ public class UserReimbursementSoap implements Serializable {
         _modifiedDate = modifiedDate;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return _userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         _userId = userId;
     }
 

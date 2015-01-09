@@ -22,8 +22,8 @@ import java.util.Date;
  */
 public class ReimbursementItemCacheModel implements CacheModel<ReimbursementItem>,
     Externalizable {
-    public int id;
-    public int userReimbursementId;
+    public long id;
+    public long userReimbursementId;
     public long billDate;
     public String description;
     public int billAmount;
@@ -83,8 +83,8 @@ public class ReimbursementItemCacheModel implements CacheModel<ReimbursementItem
 
     @Override
     public void readExternal(ObjectInput objectInput) throws IOException {
-        id = objectInput.readInt();
-        userReimbursementId = objectInput.readInt();
+        id = objectInput.readLong();
+        userReimbursementId = objectInput.readLong();
         billDate = objectInput.readLong();
         description = objectInput.readUTF();
         billAmount = objectInput.readInt();
@@ -94,8 +94,8 @@ public class ReimbursementItemCacheModel implements CacheModel<ReimbursementItem
     @Override
     public void writeExternal(ObjectOutput objectOutput)
         throws IOException {
-        objectOutput.writeInt(id);
-        objectOutput.writeInt(userReimbursementId);
+        objectOutput.writeLong(id);
+        objectOutput.writeLong(userReimbursementId);
         objectOutput.writeLong(billDate);
 
         if (description == null) {

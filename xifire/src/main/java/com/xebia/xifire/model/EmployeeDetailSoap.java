@@ -13,8 +13,8 @@ import java.util.List;
  * @generated
  */
 public class EmployeeDetailSoap implements Serializable {
-    private int _id;
-    private int _userId;
+    private long _id;
+    private long _userId;
     private String _employeeCode;
     private String _designation;
     private String _location;
@@ -80,27 +80,27 @@ public class EmployeeDetailSoap implements Serializable {
         return soapModels.toArray(new EmployeeDetailSoap[soapModels.size()]);
     }
 
-    public int getPrimaryKey() {
+    public long getPrimaryKey() {
         return _id;
     }
 
-    public void setPrimaryKey(int pk) {
+    public void setPrimaryKey(long pk) {
         setId(pk);
     }
 
-    public int getId() {
+    public long getId() {
         return _id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         _id = id;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return _userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         _userId = userId;
     }
 

@@ -10,26 +10,26 @@ import java.sql.Blob;
  * @generated
  */
 public class ReimbursementItemDocumentBlobModel {
-    private int _id;
+    private long _id;
     private Blob _documentBlob;
 
     public ReimbursementItemDocumentBlobModel() {
     }
 
-    public ReimbursementItemDocumentBlobModel(int id) {
+    public ReimbursementItemDocumentBlobModel(long id) {
         _id = id;
     }
 
-    public ReimbursementItemDocumentBlobModel(int id, Blob documentBlob) {
+    public ReimbursementItemDocumentBlobModel(long id, Blob documentBlob) {
         _id = id;
         _documentBlob = documentBlob;
     }
 
-    public int getId() {
+    public long getId() {
         return _id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         _id = id;
     }
 

@@ -26,6 +26,7 @@
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
 	<mapped-superclass class="com.xebia.xifire.model.impl.ReimbursementItemModelImpl">
@@ -72,6 +73,7 @@
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
 	<mapped-superclass class="com.xebia.xifire.model.impl.UserReimbursementModelImpl">
@@ -91,6 +93,7 @@
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
 	<entity class="com.xebia.xifire.model.impl.EmployeeDetailImpl" name="EmployeeDetail">

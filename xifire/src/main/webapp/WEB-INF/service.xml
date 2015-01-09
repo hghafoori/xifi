@@ -8,7 +8,7 @@
     <entity name="UserReimbursement" local-service="true" remote-service="false" table="user_reimbursement">
         <!--  PK fields -->
 
-        <column name="id" type="int" primary="true"/>
+        <column name="id" type="long" primary="true"/>
 
         <!--  Audit fields -->
 
@@ -16,7 +16,7 @@
         <column name="modifiedDate" type="Date"/>
 
         <!--  Other fields -->
-		<column name="userId" type="int"/>
+		<column name="userId" type="long"/>
         <column name="description" type="String"/>
         <column name="status" type="String"/>
 
@@ -29,11 +29,11 @@
     <entity name="ReimbursementItem" local-service="true" remote-service="false" table="reimbursement_item">
         <!-- PK fields -->
 
-        <column name="id" type="int" primary="true"/>
+        <column name="id" type="long" primary="true"/>
 
         <!-- Other fields -->
 
-        <column name="userReimbursementId" type="int"/>
+        <column name="userReimbursementId" type="long"/>
         <column name="billDate" type="Date"/>
         <column name="description" type="String"/>
         <column name="billAmount" type="int"/>
@@ -44,11 +44,11 @@
     <entity name="EmployeeDetail" local-service="true" remote-service="false" table="employee_detail">
         <!-- PK fields -->
 
-        <column name="id" type="int" primary="true"/>
+        <column name="id" type="long" primary="true"/>
 
         <!-- Other fields -->
 
-        <column name="userId" type="int"/>
+        <column name="userId" type="long"/>
         <column name="employeeCode" type="String"/>
         <column name="designation" type="String"/>
         <column name="location" type="String"/>
@@ -67,11 +67,11 @@
     <entity name="Salary" local-service="true" remote-service="false" table="salary">
         <!-- PK fields -->
 
-        <column name="id" type="int" primary="true"/>
+        <column name="id" type="long" primary="true"/>
 
         <!-- Other fields -->
 
-        <column name="userId" type="int"/>
+        <column name="userId" type="long"/>
         <column name="salaryMonth" type="int"/>
         <column name="salaryYear" type="int"/>
         <column name="basic" type="int"/>

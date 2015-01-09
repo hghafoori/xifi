@@ -53,14 +53,13 @@ public class ReimbursementItemWrapper implements ReimbursementItem,
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        Integer id = (Integer) attributes.get("id");
+        Long id = (Long) attributes.get("id");
 
         if (id != null) {
             setId(id);
         }
 
-        Integer userReimbursementId = (Integer) attributes.get(
-                "userReimbursementId");
+        Long userReimbursementId = (Long) attributes.get("userReimbursementId");
 
         if (userReimbursementId != null) {
             setUserReimbursementId(userReimbursementId);
@@ -103,7 +102,7 @@ public class ReimbursementItemWrapper implements ReimbursementItem,
     * @return the primary key of this reimbursement item
     */
     @Override
-    public int getPrimaryKey() {
+    public long getPrimaryKey() {
         return _reimbursementItem.getPrimaryKey();
     }
 
@@ -113,7 +112,7 @@ public class ReimbursementItemWrapper implements ReimbursementItem,
     * @param primaryKey the primary key of this reimbursement item
     */
     @Override
-    public void setPrimaryKey(int primaryKey) {
+    public void setPrimaryKey(long primaryKey) {
         _reimbursementItem.setPrimaryKey(primaryKey);
     }
 
@@ -123,7 +122,7 @@ public class ReimbursementItemWrapper implements ReimbursementItem,
     * @return the ID of this reimbursement item
     */
     @Override
-    public int getId() {
+    public long getId() {
         return _reimbursementItem.getId();
     }
 
@@ -133,7 +132,7 @@ public class ReimbursementItemWrapper implements ReimbursementItem,
     * @param id the ID of this reimbursement item
     */
     @Override
-    public void setId(int id) {
+    public void setId(long id) {
         _reimbursementItem.setId(id);
     }
 
@@ -143,7 +142,7 @@ public class ReimbursementItemWrapper implements ReimbursementItem,
     * @return the user reimbursement ID of this reimbursement item
     */
     @Override
-    public int getUserReimbursementId() {
+    public long getUserReimbursementId() {
         return _reimbursementItem.getUserReimbursementId();
     }
 
@@ -153,7 +152,7 @@ public class ReimbursementItemWrapper implements ReimbursementItem,
     * @param userReimbursementId the user reimbursement ID of this reimbursement item
     */
     @Override
-    public void setUserReimbursementId(int userReimbursementId) {
+    public void setUserReimbursementId(long userReimbursementId) {
         _reimbursementItem.setUserReimbursementId(userReimbursementId);
     }
 

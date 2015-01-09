@@ -50,7 +50,7 @@ public class UserReimbursementWrapper implements UserReimbursement,
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        Integer id = (Integer) attributes.get("id");
+        Long id = (Long) attributes.get("id");
 
         if (id != null) {
             setId(id);
@@ -68,7 +68,7 @@ public class UserReimbursementWrapper implements UserReimbursement,
             setModifiedDate(modifiedDate);
         }
 
-        Integer userId = (Integer) attributes.get("userId");
+        Long userId = (Long) attributes.get("userId");
 
         if (userId != null) {
             setUserId(userId);
@@ -93,7 +93,7 @@ public class UserReimbursementWrapper implements UserReimbursement,
     * @return the primary key of this user reimbursement
     */
     @Override
-    public int getPrimaryKey() {
+    public long getPrimaryKey() {
         return _userReimbursement.getPrimaryKey();
     }
 
@@ -103,7 +103,7 @@ public class UserReimbursementWrapper implements UserReimbursement,
     * @param primaryKey the primary key of this user reimbursement
     */
     @Override
-    public void setPrimaryKey(int primaryKey) {
+    public void setPrimaryKey(long primaryKey) {
         _userReimbursement.setPrimaryKey(primaryKey);
     }
 
@@ -113,7 +113,7 @@ public class UserReimbursementWrapper implements UserReimbursement,
     * @return the ID of this user reimbursement
     */
     @Override
-    public int getId() {
+    public long getId() {
         return _userReimbursement.getId();
     }
 
@@ -123,7 +123,7 @@ public class UserReimbursementWrapper implements UserReimbursement,
     * @param id the ID of this user reimbursement
     */
     @Override
-    public void setId(int id) {
+    public void setId(long id) {
         _userReimbursement.setId(id);
     }
 
@@ -173,7 +173,7 @@ public class UserReimbursementWrapper implements UserReimbursement,
     * @return the user ID of this user reimbursement
     */
     @Override
-    public int getUserId() {
+    public long getUserId() {
         return _userReimbursement.getUserId();
     }
 
@@ -183,8 +183,30 @@ public class UserReimbursementWrapper implements UserReimbursement,
     * @param userId the user ID of this user reimbursement
     */
     @Override
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         _userReimbursement.setUserId(userId);
+    }
+
+    /**
+    * Returns the user uuid of this user reimbursement.
+    *
+    * @return the user uuid of this user reimbursement
+    * @throws SystemException if a system exception occurred
+    */
+    @Override
+    public java.lang.String getUserUuid()
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return _userReimbursement.getUserUuid();
+    }
+
+    /**
+    * Sets the user uuid of this user reimbursement.
+    *
+    * @param userUuid the user uuid of this user reimbursement
+    */
+    @Override
+    public void setUserUuid(java.lang.String userUuid) {
+        _userReimbursement.setUserUuid(userUuid);
     }
 
     /**

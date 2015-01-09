@@ -106,7 +106,8 @@ public class EmployeeDetailUtil {
     * @throws com.xebia.xifire.NoSuchEmployeeDetailException if a matching employee detail could not be found
     * @throws SystemException if a system exception occurred
     */
-    public static com.xebia.xifire.model.EmployeeDetail findByUserId(int userId)
+    public static com.xebia.xifire.model.EmployeeDetail findByUserId(
+        long userId)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchEmployeeDetailException {
         return getPersistence().findByUserId(userId);
@@ -120,7 +121,7 @@ public class EmployeeDetailUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.EmployeeDetail fetchByUserId(
-        int userId) throws com.liferay.portal.kernel.exception.SystemException {
+        long userId) throws com.liferay.portal.kernel.exception.SystemException {
         return getPersistence().fetchByUserId(userId);
     }
 
@@ -133,7 +134,7 @@ public class EmployeeDetailUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.EmployeeDetail fetchByUserId(
-        int userId, boolean retrieveFromCache)
+        long userId, boolean retrieveFromCache)
         throws com.liferay.portal.kernel.exception.SystemException {
         return getPersistence().fetchByUserId(userId, retrieveFromCache);
     }
@@ -146,7 +147,7 @@ public class EmployeeDetailUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.EmployeeDetail removeByUserId(
-        int userId)
+        long userId)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchEmployeeDetailException {
         return getPersistence().removeByUserId(userId);
@@ -159,7 +160,7 @@ public class EmployeeDetailUtil {
     * @return the number of matching employee details
     * @throws SystemException if a system exception occurred
     */
-    public static int countByUserId(int userId)
+    public static int countByUserId(long userId)
         throws com.liferay.portal.kernel.exception.SystemException {
         return getPersistence().countByUserId(userId);
     }
@@ -190,7 +191,7 @@ public class EmployeeDetailUtil {
     * @param id the primary key for the new employee detail
     * @return the new employee detail
     */
-    public static com.xebia.xifire.model.EmployeeDetail create(int id) {
+    public static com.xebia.xifire.model.EmployeeDetail create(long id) {
         return getPersistence().create(id);
     }
 
@@ -202,7 +203,7 @@ public class EmployeeDetailUtil {
     * @throws com.xebia.xifire.NoSuchEmployeeDetailException if a employee detail with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public static com.xebia.xifire.model.EmployeeDetail remove(int id)
+    public static com.xebia.xifire.model.EmployeeDetail remove(long id)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchEmployeeDetailException {
         return getPersistence().remove(id);
@@ -222,7 +223,8 @@ public class EmployeeDetailUtil {
     * @throws com.xebia.xifire.NoSuchEmployeeDetailException if a employee detail with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public static com.xebia.xifire.model.EmployeeDetail findByPrimaryKey(int id)
+    public static com.xebia.xifire.model.EmployeeDetail findByPrimaryKey(
+        long id)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchEmployeeDetailException {
         return getPersistence().findByPrimaryKey(id);
@@ -236,7 +238,7 @@ public class EmployeeDetailUtil {
     * @throws SystemException if a system exception occurred
     */
     public static com.xebia.xifire.model.EmployeeDetail fetchByPrimaryKey(
-        int id) throws com.liferay.portal.kernel.exception.SystemException {
+        long id) throws com.liferay.portal.kernel.exception.SystemException {
         return getPersistence().fetchByPrimaryKey(id);
     }
 

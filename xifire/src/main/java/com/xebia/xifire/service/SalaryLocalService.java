@@ -49,7 +49,7 @@ public interface SalaryLocalService extends BaseLocalService,
     * @param id the primary key for the new salary
     * @return the new salary
     */
-    public com.xebia.xifire.model.Salary createSalary(int id);
+    public com.xebia.xifire.model.Salary createSalary(long id);
 
     /**
     * Deletes the salary with the primary key from the database. Also notifies the appropriate model listeners.
@@ -59,7 +59,7 @@ public interface SalaryLocalService extends BaseLocalService,
     * @throws PortalException if a salary with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.Salary deleteSalary(int id)
+    public com.xebia.xifire.model.Salary deleteSalary(long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException;
 
@@ -152,7 +152,7 @@ public interface SalaryLocalService extends BaseLocalService,
         throws com.liferay.portal.kernel.exception.SystemException;
 
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public com.xebia.xifire.model.Salary fetchSalary(int id)
+    public com.xebia.xifire.model.Salary fetchSalary(long id)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**
@@ -164,7 +164,7 @@ public interface SalaryLocalService extends BaseLocalService,
     * @throws SystemException if a system exception occurred
     */
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public com.xebia.xifire.model.Salary getSalary(int id)
+    public com.xebia.xifire.model.Salary getSalary(long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException;
 

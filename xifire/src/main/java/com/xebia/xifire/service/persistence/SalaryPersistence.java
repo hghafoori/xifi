@@ -33,7 +33,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @throws com.xebia.xifire.NoSuchSalaryException if a matching salary could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.Salary findByUserIdMonthAndYear(int userId,
+    public com.xebia.xifire.model.Salary findByUserIdMonthAndYear(long userId,
         int salaryMonth, int salaryYear)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchSalaryException;
@@ -47,8 +47,8 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @return the matching salary, or <code>null</code> if a matching salary could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.Salary fetchByUserIdMonthAndYear(int userId,
-        int salaryMonth, int salaryYear)
+    public com.xebia.xifire.model.Salary fetchByUserIdMonthAndYear(
+        long userId, int salaryMonth, int salaryYear)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**
@@ -61,8 +61,8 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @return the matching salary, or <code>null</code> if a matching salary could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.Salary fetchByUserIdMonthAndYear(int userId,
-        int salaryMonth, int salaryYear, boolean retrieveFromCache)
+    public com.xebia.xifire.model.Salary fetchByUserIdMonthAndYear(
+        long userId, int salaryMonth, int salaryYear, boolean retrieveFromCache)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**
@@ -75,7 +75,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @throws SystemException if a system exception occurred
     */
     public com.xebia.xifire.model.Salary removeByUserIdMonthAndYear(
-        int userId, int salaryMonth, int salaryYear)
+        long userId, int salaryMonth, int salaryYear)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchSalaryException;
 
@@ -88,7 +88,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @return the number of matching salaries
     * @throws SystemException if a system exception occurred
     */
-    public int countByUserIdMonthAndYear(int userId, int salaryMonth,
+    public int countByUserIdMonthAndYear(long userId, int salaryMonth,
         int salaryYear)
         throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -101,7 +101,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @throws com.xebia.xifire.NoSuchSalaryException if a matching salary could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.Salary findByUserIdYear(int userId,
+    public com.xebia.xifire.model.Salary findByUserIdYear(long userId,
         int salaryYear)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchSalaryException;
@@ -114,7 +114,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @return the matching salary, or <code>null</code> if a matching salary could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.Salary fetchByUserIdYear(int userId,
+    public com.xebia.xifire.model.Salary fetchByUserIdYear(long userId,
         int salaryYear)
         throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -127,7 +127,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @return the matching salary, or <code>null</code> if a matching salary could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.Salary fetchByUserIdYear(int userId,
+    public com.xebia.xifire.model.Salary fetchByUserIdYear(long userId,
         int salaryYear, boolean retrieveFromCache)
         throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -139,7 +139,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @return the salary that was removed
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.Salary removeByUserIdYear(int userId,
+    public com.xebia.xifire.model.Salary removeByUserIdYear(long userId,
         int salaryYear)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchSalaryException;
@@ -152,7 +152,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @return the number of matching salaries
     * @throws SystemException if a system exception occurred
     */
-    public int countByUserIdYear(int userId, int salaryYear)
+    public int countByUserIdYear(long userId, int salaryYear)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**
@@ -163,7 +163,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @throws com.xebia.xifire.NoSuchSalaryException if a matching salary could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.Salary findByUserId(int userId)
+    public com.xebia.xifire.model.Salary findByUserId(long userId)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchSalaryException;
 
@@ -174,7 +174,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @return the matching salary, or <code>null</code> if a matching salary could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.Salary fetchByUserId(int userId)
+    public com.xebia.xifire.model.Salary fetchByUserId(long userId)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**
@@ -185,7 +185,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @return the matching salary, or <code>null</code> if a matching salary could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.Salary fetchByUserId(int userId,
+    public com.xebia.xifire.model.Salary fetchByUserId(long userId,
         boolean retrieveFromCache)
         throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -196,7 +196,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @return the salary that was removed
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.Salary removeByUserId(int userId)
+    public com.xebia.xifire.model.Salary removeByUserId(long userId)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchSalaryException;
 
@@ -207,7 +207,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @return the number of matching salaries
     * @throws SystemException if a system exception occurred
     */
-    public int countByUserId(int userId)
+    public int countByUserId(long userId)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**
@@ -231,7 +231,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @param id the primary key for the new salary
     * @return the new salary
     */
-    public com.xebia.xifire.model.Salary create(int id);
+    public com.xebia.xifire.model.Salary create(long id);
 
     /**
     * Removes the salary with the primary key from the database. Also notifies the appropriate model listeners.
@@ -241,7 +241,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @throws com.xebia.xifire.NoSuchSalaryException if a salary with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.Salary remove(int id)
+    public com.xebia.xifire.model.Salary remove(long id)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchSalaryException;
 
@@ -257,7 +257,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @throws com.xebia.xifire.NoSuchSalaryException if a salary with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.Salary findByPrimaryKey(int id)
+    public com.xebia.xifire.model.Salary findByPrimaryKey(long id)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchSalaryException;
 
@@ -268,7 +268,7 @@ public interface SalaryPersistence extends BasePersistence<Salary> {
     * @return the salary, or <code>null</code> if a salary with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.Salary fetchByPrimaryKey(int id)
+    public com.xebia.xifire.model.Salary fetchByPrimaryKey(long id)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**

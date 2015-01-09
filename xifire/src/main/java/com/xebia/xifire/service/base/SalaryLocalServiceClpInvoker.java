@@ -59,11 +59,11 @@ public class SalaryLocalServiceClpInvoker {
 
         _methodName1 = "createSalary";
 
-        _methodParameterTypes1 = new String[] { "int" };
+        _methodParameterTypes1 = new String[] { "long" };
 
         _methodName2 = "deleteSalary";
 
-        _methodParameterTypes2 = new String[] { "int" };
+        _methodParameterTypes2 = new String[] { "long" };
 
         _methodName3 = "deleteSalary";
 
@@ -107,11 +107,11 @@ public class SalaryLocalServiceClpInvoker {
 
         _methodName10 = "fetchSalary";
 
-        _methodParameterTypes10 = new String[] { "int" };
+        _methodParameterTypes10 = new String[] { "long" };
 
         _methodName11 = "getSalary";
 
-        _methodParameterTypes11 = new String[] { "int" };
+        _methodParameterTypes11 = new String[] { "long" };
 
         _methodName12 = "getPersistedModel";
 
@@ -159,12 +159,12 @@ public class SalaryLocalServiceClpInvoker {
 
         if (_methodName1.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes1, parameterTypes)) {
-            return SalaryLocalServiceUtil.createSalary(((Integer) arguments[0]).intValue());
+            return SalaryLocalServiceUtil.createSalary(((Long) arguments[0]).longValue());
         }
 
         if (_methodName2.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes2, parameterTypes)) {
-            return SalaryLocalServiceUtil.deleteSalary(((Integer) arguments[0]).intValue());
+            return SalaryLocalServiceUtil.deleteSalary(((Long) arguments[0]).longValue());
         }
 
         if (_methodName3.equals(name) &&
@@ -210,12 +210,12 @@ public class SalaryLocalServiceClpInvoker {
 
         if (_methodName10.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes10, parameterTypes)) {
-            return SalaryLocalServiceUtil.fetchSalary(((Integer) arguments[0]).intValue());
+            return SalaryLocalServiceUtil.fetchSalary(((Long) arguments[0]).longValue());
         }
 
         if (_methodName11.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes11, parameterTypes)) {
-            return SalaryLocalServiceUtil.getSalary(((Integer) arguments[0]).intValue());
+            return SalaryLocalServiceUtil.getSalary(((Long) arguments[0]).longValue());
         }
 
         if (_methodName12.equals(name) &&

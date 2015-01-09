@@ -6,6 +6,7 @@ import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.impl.BaseModelImpl;
+import com.liferay.portal.util.PortalUtil;
 
 import com.xebia.xifire.service.ClpSerializer;
 import com.xebia.xifire.service.SalaryLocalServiceUtil;
@@ -19,8 +20,9 @@ import java.util.Map;
 
 
 public class SalaryClp extends BaseModelImpl<Salary> implements Salary {
-    private int _id;
-    private int _userId;
+    private long _id;
+    private long _userId;
+    private String _userUuid;
     private int _salaryMonth;
     private int _salaryYear;
     private int _basic;
@@ -54,12 +56,12 @@ public class SalaryClp extends BaseModelImpl<Salary> implements Salary {
     }
 
     @Override
-    public int getPrimaryKey() {
+    public long getPrimaryKey() {
         return _id;
     }
 
     @Override
-    public void setPrimaryKey(int primaryKey) {
+    public void setPrimaryKey(long primaryKey) {
         setId(primaryKey);
     }
 
@@ -70,7 +72,7 @@ public class SalaryClp extends BaseModelImpl<Salary> implements Salary {
 
     @Override
     public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-        setPrimaryKey(((Integer) primaryKeyObj).intValue());
+        setPrimaryKey(((Long) primaryKeyObj).longValue());
     }
 
     @Override
@@ -102,13 +104,13 @@ public class SalaryClp extends BaseModelImpl<Salary> implements Salary {
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        Integer id = (Integer) attributes.get("id");
+        Long id = (Long) attributes.get("id");
 
         if (id != null) {
             setId(id);
         }
 
-        Integer userId = (Integer) attributes.get("userId");
+        Long userId = (Long) attributes.get("userId");
 
         if (userId != null) {
             setUserId(userId);
@@ -218,19 +220,19 @@ public class SalaryClp extends BaseModelImpl<Salary> implements Salary {
     }
 
     @Override
-    public int getId() {
+    public long getId() {
         return _id;
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(long id) {
         _id = id;
 
         if (_salaryRemoteModel != null) {
             try {
                 Class<?> clazz = _salaryRemoteModel.getClass();
 
-                Method method = clazz.getMethod("setId", int.class);
+                Method method = clazz.getMethod("setId", long.class);
 
                 method.invoke(_salaryRemoteModel, id);
             } catch (Exception e) {
@@ -240,25 +242,35 @@ public class SalaryClp extends BaseModelImpl<Salary> implements Salary {
     }
 
     @Override
-    public int getUserId() {
+    public long getUserId() {
         return _userId;
     }
 
     @Override
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         _userId = userId;
 
         if (_salaryRemoteModel != null) {
             try {
                 Class<?> clazz = _salaryRemoteModel.getClass();
 
-                Method method = clazz.getMethod("setUserId", int.class);
+                Method method = clazz.getMethod("setUserId", long.class);
 
                 method.invoke(_salaryRemoteModel, userId);
             } catch (Exception e) {
                 throw new UnsupportedOperationException(e);
             }
         }
+    }
+
+    @Override
+    public String getUserUuid() throws SystemException {
+        return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
+    }
+
+    @Override
+    public void setUserUuid(String userUuid) {
+        _userUuid = userUuid;
     }
 
     @Override
@@ -727,7 +739,7 @@ public class SalaryClp extends BaseModelImpl<Salary> implements Salary {
 
     @Override
     public int compareTo(Salary salary) {
-        int primaryKey = salary.getPrimaryKey();
+        long primaryKey = salary.getPrimaryKey();
 
         if (getPrimaryKey() < primaryKey) {
             return -1;
@@ -750,7 +762,7 @@ public class SalaryClp extends BaseModelImpl<Salary> implements Salary {
 
         SalaryClp salary = (SalaryClp) obj;
 
-        int primaryKey = salary.getPrimaryKey();
+        long primaryKey = salary.getPrimaryKey();
 
         if (getPrimaryKey() == primaryKey) {
             return true;
@@ -761,7 +773,7 @@ public class SalaryClp extends BaseModelImpl<Salary> implements Salary {
 
     @Override
     public int hashCode() {
-        return getPrimaryKey();
+        return (int) getPrimaryKey();
     }
 
     @Override

@@ -60,11 +60,11 @@ public class UserReimbursementLocalServiceClp
 
         _methodName1 = "createUserReimbursement";
 
-        _methodParameterTypes1 = new String[] { "int" };
+        _methodParameterTypes1 = new String[] { "long" };
 
         _methodName2 = "deleteUserReimbursement";
 
-        _methodParameterTypes2 = new String[] { "int" };
+        _methodParameterTypes2 = new String[] { "long" };
 
         _methodName3 = "deleteUserReimbursement";
 
@@ -110,11 +110,11 @@ public class UserReimbursementLocalServiceClp
 
         _methodName10 = "fetchUserReimbursement";
 
-        _methodParameterTypes10 = new String[] { "int" };
+        _methodParameterTypes10 = new String[] { "long" };
 
         _methodName11 = "getUserReimbursement";
 
-        _methodParameterTypes11 = new String[] { "int" };
+        _methodParameterTypes11 = new String[] { "long" };
 
         _methodName12 = "getPersistedModel";
 
@@ -178,7 +178,7 @@ public class UserReimbursementLocalServiceClp
 
     @Override
     public com.xebia.xifire.model.UserReimbursement createUserReimbursement(
-        int id) {
+        long id) {
         Object returnObj = null;
 
         try {
@@ -200,7 +200,7 @@ public class UserReimbursementLocalServiceClp
 
     @Override
     public com.xebia.xifire.model.UserReimbursement deleteUserReimbursement(
-        int id)
+        long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
@@ -446,7 +446,7 @@ public class UserReimbursementLocalServiceClp
 
     @Override
     public com.xebia.xifire.model.UserReimbursement fetchUserReimbursement(
-        int id) throws com.liferay.portal.kernel.exception.SystemException {
+        long id) throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
         try {
@@ -471,7 +471,8 @@ public class UserReimbursementLocalServiceClp
     }
 
     @Override
-    public com.xebia.xifire.model.UserReimbursement getUserReimbursement(int id)
+    public com.xebia.xifire.model.UserReimbursement getUserReimbursement(
+        long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;

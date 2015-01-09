@@ -15,8 +15,8 @@ import java.util.List;
  * @generated
  */
 public class ReimbursementItemSoap implements Serializable {
-    private int _id;
-    private int _userReimbursementId;
+    private long _id;
+    private long _userReimbursementId;
     private Date _billDate;
     private String _description;
     private int _billAmount;
@@ -79,27 +79,27 @@ public class ReimbursementItemSoap implements Serializable {
         return soapModels.toArray(new ReimbursementItemSoap[soapModels.size()]);
     }
 
-    public int getPrimaryKey() {
+    public long getPrimaryKey() {
         return _id;
     }
 
-    public void setPrimaryKey(int pk) {
+    public void setPrimaryKey(long pk) {
         setId(pk);
     }
 
-    public int getId() {
+    public long getId() {
         return _id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         _id = id;
     }
 
-    public int getUserReimbursementId() {
+    public long getUserReimbursementId() {
         return _userReimbursementId;
     }
 
-    public void setUserReimbursementId(int userReimbursementId) {
+    public void setUserReimbursementId(long userReimbursementId) {
         _userReimbursementId = userReimbursementId;
     }
 

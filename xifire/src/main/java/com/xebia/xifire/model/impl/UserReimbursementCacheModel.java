@@ -22,10 +22,10 @@ import java.util.Date;
  */
 public class UserReimbursementCacheModel implements CacheModel<UserReimbursement>,
     Externalizable {
-    public int id;
+    public long id;
     public long createDate;
     public long modifiedDate;
-    public int userId;
+    public long userId;
     public String description;
     public String status;
 
@@ -89,10 +89,10 @@ public class UserReimbursementCacheModel implements CacheModel<UserReimbursement
 
     @Override
     public void readExternal(ObjectInput objectInput) throws IOException {
-        id = objectInput.readInt();
+        id = objectInput.readLong();
         createDate = objectInput.readLong();
         modifiedDate = objectInput.readLong();
-        userId = objectInput.readInt();
+        userId = objectInput.readLong();
         description = objectInput.readUTF();
         status = objectInput.readUTF();
     }
@@ -100,10 +100,10 @@ public class UserReimbursementCacheModel implements CacheModel<UserReimbursement
     @Override
     public void writeExternal(ObjectOutput objectOutput)
         throws IOException {
-        objectOutput.writeInt(id);
+        objectOutput.writeLong(id);
         objectOutput.writeLong(createDate);
         objectOutput.writeLong(modifiedDate);
-        objectOutput.writeInt(userId);
+        objectOutput.writeLong(userId);
 
         if (description == null) {
             objectOutput.writeUTF(StringPool.BLANK);

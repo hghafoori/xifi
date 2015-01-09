@@ -49,7 +49,7 @@ public interface EmployeeDetailLocalService extends BaseLocalService,
     * @param id the primary key for the new employee detail
     * @return the new employee detail
     */
-    public com.xebia.xifire.model.EmployeeDetail createEmployeeDetail(int id);
+    public com.xebia.xifire.model.EmployeeDetail createEmployeeDetail(long id);
 
     /**
     * Deletes the employee detail with the primary key from the database. Also notifies the appropriate model listeners.
@@ -59,7 +59,7 @@ public interface EmployeeDetailLocalService extends BaseLocalService,
     * @throws PortalException if a employee detail with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.EmployeeDetail deleteEmployeeDetail(int id)
+    public com.xebia.xifire.model.EmployeeDetail deleteEmployeeDetail(long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException;
 
@@ -152,7 +152,7 @@ public interface EmployeeDetailLocalService extends BaseLocalService,
         throws com.liferay.portal.kernel.exception.SystemException;
 
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public com.xebia.xifire.model.EmployeeDetail fetchEmployeeDetail(int id)
+    public com.xebia.xifire.model.EmployeeDetail fetchEmployeeDetail(long id)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**
@@ -164,7 +164,7 @@ public interface EmployeeDetailLocalService extends BaseLocalService,
     * @throws SystemException if a system exception occurred
     */
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public com.xebia.xifire.model.EmployeeDetail getEmployeeDetail(int id)
+    public com.xebia.xifire.model.EmployeeDetail getEmployeeDetail(long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException;
 

@@ -38,7 +38,7 @@ public class SalaryLocalServiceWrapper implements SalaryLocalService,
     * @return the new salary
     */
     @Override
-    public com.xebia.xifire.model.Salary createSalary(int id) {
+    public com.xebia.xifire.model.Salary createSalary(long id) {
         return _salaryLocalService.createSalary(id);
     }
 
@@ -51,7 +51,7 @@ public class SalaryLocalServiceWrapper implements SalaryLocalService,
     * @throws SystemException if a system exception occurred
     */
     @Override
-    public com.xebia.xifire.model.Salary deleteSalary(int id)
+    public com.xebia.xifire.model.Salary deleteSalary(long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         return _salaryLocalService.deleteSalary(id);
@@ -168,7 +168,7 @@ public class SalaryLocalServiceWrapper implements SalaryLocalService,
     }
 
     @Override
-    public com.xebia.xifire.model.Salary fetchSalary(int id)
+    public com.xebia.xifire.model.Salary fetchSalary(long id)
         throws com.liferay.portal.kernel.exception.SystemException {
         return _salaryLocalService.fetchSalary(id);
     }
@@ -182,7 +182,7 @@ public class SalaryLocalServiceWrapper implements SalaryLocalService,
     * @throws SystemException if a system exception occurred
     */
     @Override
-    public com.xebia.xifire.model.Salary getSalary(int id)
+    public com.xebia.xifire.model.Salary getSalary(long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         return _salaryLocalService.getSalary(id);

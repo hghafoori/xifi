@@ -76,12 +76,12 @@ public class UserReimbursementPersistenceImpl extends BasePersistenceImpl<UserRe
     public static final FinderPath FINDER_PATH_FETCH_BY_USERID = new FinderPath(UserReimbursementModelImpl.ENTITY_CACHE_ENABLED,
             UserReimbursementModelImpl.FINDER_CACHE_ENABLED,
             UserReimbursementImpl.class, FINDER_CLASS_NAME_ENTITY,
-            "fetchByUserId", new String[] { Integer.class.getName() },
+            "fetchByUserId", new String[] { Long.class.getName() },
             UserReimbursementModelImpl.USERID_COLUMN_BITMASK);
     public static final FinderPath FINDER_PATH_COUNT_BY_USERID = new FinderPath(UserReimbursementModelImpl.ENTITY_CACHE_ENABLED,
             UserReimbursementModelImpl.FINDER_CACHE_ENABLED, Long.class,
             FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByUserId",
-            new String[] { Integer.class.getName() });
+            new String[] { Long.class.getName() });
     private static final String _FINDER_COLUMN_USERID_USERID_2 = "userReimbursement.userId = ?";
     private static final String _SQL_SELECT_USERREIMBURSEMENT = "SELECT userReimbursement FROM UserReimbursement userReimbursement";
     private static final String _SQL_SELECT_USERREIMBURSEMENT_WHERE = "SELECT userReimbursement FROM UserReimbursement userReimbursement WHERE ";
@@ -129,7 +129,7 @@ public class UserReimbursementPersistenceImpl extends BasePersistenceImpl<UserRe
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public UserReimbursement findByUserId(int userId)
+    public UserReimbursement findByUserId(long userId)
         throws NoSuchUserReimbursementException, SystemException {
         UserReimbursement userReimbursement = fetchByUserId(userId);
 
@@ -161,7 +161,7 @@ public class UserReimbursementPersistenceImpl extends BasePersistenceImpl<UserRe
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public UserReimbursement fetchByUserId(int userId)
+    public UserReimbursement fetchByUserId(long userId)
         throws SystemException {
         return fetchByUserId(userId, true);
     }
@@ -175,8 +175,8 @@ public class UserReimbursementPersistenceImpl extends BasePersistenceImpl<UserRe
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public UserReimbursement fetchByUserId(int userId, boolean retrieveFromCache)
-        throws SystemException {
+    public UserReimbursement fetchByUserId(long userId,
+        boolean retrieveFromCache) throws SystemException {
         Object[] finderArgs = new Object[] { userId };
 
         Object result = null;
@@ -256,7 +256,7 @@ public class UserReimbursementPersistenceImpl extends BasePersistenceImpl<UserRe
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public UserReimbursement removeByUserId(int userId)
+    public UserReimbursement removeByUserId(long userId)
         throws NoSuchUserReimbursementException, SystemException {
         UserReimbursement userReimbursement = findByUserId(userId);
 
@@ -271,7 +271,7 @@ public class UserReimbursementPersistenceImpl extends BasePersistenceImpl<UserRe
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public int countByUserId(int userId) throws SystemException {
+    public int countByUserId(long userId) throws SystemException {
         FinderPath finderPath = FINDER_PATH_COUNT_BY_USERID;
 
         Object[] finderArgs = new Object[] { userId };
@@ -448,7 +448,7 @@ public class UserReimbursementPersistenceImpl extends BasePersistenceImpl<UserRe
      * @return the new user reimbursement
      */
     @Override
-    public UserReimbursement create(int id) {
+    public UserReimbursement create(long id) {
         UserReimbursement userReimbursement = new UserReimbursementImpl();
 
         userReimbursement.setNew(true);
@@ -466,7 +466,7 @@ public class UserReimbursementPersistenceImpl extends BasePersistenceImpl<UserRe
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public UserReimbursement remove(int id)
+    public UserReimbursement remove(long id)
         throws NoSuchUserReimbursementException, SystemException {
         return remove((Serializable) id);
     }
@@ -637,7 +637,7 @@ public class UserReimbursementPersistenceImpl extends BasePersistenceImpl<UserRe
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public UserReimbursement findByPrimaryKey(int id)
+    public UserReimbursement findByPrimaryKey(long id)
         throws NoSuchUserReimbursementException, SystemException {
         return findByPrimaryKey((Serializable) id);
     }
@@ -696,7 +696,7 @@ public class UserReimbursementPersistenceImpl extends BasePersistenceImpl<UserRe
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public UserReimbursement fetchByPrimaryKey(int id)
+    public UserReimbursement fetchByPrimaryKey(long id)
         throws SystemException {
         return fetchByPrimaryKey((Serializable) id);
     }

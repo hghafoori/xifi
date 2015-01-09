@@ -1,6 +1,7 @@
 package com.xebia.xifire.model;
 
 import com.liferay.portal.kernel.bean.AutoEscape;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
@@ -36,28 +37,28 @@ public interface UserReimbursementModel extends BaseModel<UserReimbursement> {
      *
      * @return the primary key of this user reimbursement
      */
-    public int getPrimaryKey();
+    public long getPrimaryKey();
 
     /**
      * Sets the primary key of this user reimbursement.
      *
      * @param primaryKey the primary key of this user reimbursement
      */
-    public void setPrimaryKey(int primaryKey);
+    public void setPrimaryKey(long primaryKey);
 
     /**
      * Returns the ID of this user reimbursement.
      *
      * @return the ID of this user reimbursement
      */
-    public int getId();
+    public long getId();
 
     /**
      * Sets the ID of this user reimbursement.
      *
      * @param id the ID of this user reimbursement
      */
-    public void setId(int id);
+    public void setId(long id);
 
     /**
      * Returns the create date of this user reimbursement.
@@ -92,14 +93,29 @@ public interface UserReimbursementModel extends BaseModel<UserReimbursement> {
      *
      * @return the user ID of this user reimbursement
      */
-    public int getUserId();
+    public long getUserId();
 
     /**
      * Sets the user ID of this user reimbursement.
      *
      * @param userId the user ID of this user reimbursement
      */
-    public void setUserId(int userId);
+    public void setUserId(long userId);
+
+    /**
+     * Returns the user uuid of this user reimbursement.
+     *
+     * @return the user uuid of this user reimbursement
+     * @throws SystemException if a system exception occurred
+     */
+    public String getUserUuid() throws SystemException;
+
+    /**
+     * Sets the user uuid of this user reimbursement.
+     *
+     * @param userUuid the user uuid of this user reimbursement
+     */
+    public void setUserUuid(String userUuid);
 
     /**
      * Returns the description of this user reimbursement.

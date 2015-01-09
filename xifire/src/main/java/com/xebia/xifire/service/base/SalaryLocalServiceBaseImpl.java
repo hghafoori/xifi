@@ -102,7 +102,7 @@ public abstract class SalaryLocalServiceBaseImpl extends BaseLocalServiceImpl
      * @return the new salary
      */
     @Override
-    public Salary createSalary(int id) {
+    public Salary createSalary(long id) {
         return salaryPersistence.create(id);
     }
 
@@ -116,7 +116,7 @@ public abstract class SalaryLocalServiceBaseImpl extends BaseLocalServiceImpl
      */
     @Indexable(type = IndexableType.DELETE)
     @Override
-    public Salary deleteSalary(int id) throws PortalException, SystemException {
+    public Salary deleteSalary(long id) throws PortalException, SystemException {
         return salaryPersistence.remove(id);
     }
 
@@ -225,7 +225,7 @@ public abstract class SalaryLocalServiceBaseImpl extends BaseLocalServiceImpl
     }
 
     @Override
-    public Salary fetchSalary(int id) throws SystemException {
+    public Salary fetchSalary(long id) throws SystemException {
         return salaryPersistence.fetchByPrimaryKey(id);
     }
 
@@ -238,7 +238,7 @@ public abstract class SalaryLocalServiceBaseImpl extends BaseLocalServiceImpl
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary getSalary(int id) throws PortalException, SystemException {
+    public Salary getSalary(long id) throws PortalException, SystemException {
         return salaryPersistence.findByPrimaryKey(id);
     }
 

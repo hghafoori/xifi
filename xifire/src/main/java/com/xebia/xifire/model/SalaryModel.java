@@ -1,5 +1,6 @@
 package com.xebia.xifire.model;
 
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
@@ -33,42 +34,57 @@ public interface SalaryModel extends BaseModel<Salary> {
      *
      * @return the primary key of this salary
      */
-    public int getPrimaryKey();
+    public long getPrimaryKey();
 
     /**
      * Sets the primary key of this salary.
      *
      * @param primaryKey the primary key of this salary
      */
-    public void setPrimaryKey(int primaryKey);
+    public void setPrimaryKey(long primaryKey);
 
     /**
      * Returns the ID of this salary.
      *
      * @return the ID of this salary
      */
-    public int getId();
+    public long getId();
 
     /**
      * Sets the ID of this salary.
      *
      * @param id the ID of this salary
      */
-    public void setId(int id);
+    public void setId(long id);
 
     /**
      * Returns the user ID of this salary.
      *
      * @return the user ID of this salary
      */
-    public int getUserId();
+    public long getUserId();
 
     /**
      * Sets the user ID of this salary.
      *
      * @param userId the user ID of this salary
      */
-    public void setUserId(int userId);
+    public void setUserId(long userId);
+
+    /**
+     * Returns the user uuid of this salary.
+     *
+     * @return the user uuid of this salary
+     * @throws SystemException if a system exception occurred
+     */
+    public String getUserUuid() throws SystemException;
+
+    /**
+     * Sets the user uuid of this salary.
+     *
+     * @param userUuid the user uuid of this salary
+     */
+    public void setUserUuid(String userUuid);
 
     /**
      * Returns the salary month of this salary.

@@ -75,7 +75,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
             SalaryModelImpl.FINDER_CACHE_ENABLED, SalaryImpl.class,
             FINDER_CLASS_NAME_ENTITY, "fetchByUserIdMonthAndYear",
             new String[] {
-                Integer.class.getName(), Integer.class.getName(),
+                Long.class.getName(), Integer.class.getName(),
                 Integer.class.getName()
             },
             SalaryModelImpl.USERID_COLUMN_BITMASK |
@@ -86,7 +86,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
             FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
             "countByUserIdMonthAndYear",
             new String[] {
-                Integer.class.getName(), Integer.class.getName(),
+                Long.class.getName(), Integer.class.getName(),
                 Integer.class.getName()
             });
     private static final String _FINDER_COLUMN_USERIDMONTHANDYEAR_USERID_2 = "salary.userId = ? AND ";
@@ -95,24 +95,24 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
     public static final FinderPath FINDER_PATH_FETCH_BY_USERIDYEAR = new FinderPath(SalaryModelImpl.ENTITY_CACHE_ENABLED,
             SalaryModelImpl.FINDER_CACHE_ENABLED, SalaryImpl.class,
             FINDER_CLASS_NAME_ENTITY, "fetchByUserIdYear",
-            new String[] { Integer.class.getName(), Integer.class.getName() },
+            new String[] { Long.class.getName(), Integer.class.getName() },
             SalaryModelImpl.USERID_COLUMN_BITMASK |
             SalaryModelImpl.SALARYYEAR_COLUMN_BITMASK);
     public static final FinderPath FINDER_PATH_COUNT_BY_USERIDYEAR = new FinderPath(SalaryModelImpl.ENTITY_CACHE_ENABLED,
             SalaryModelImpl.FINDER_CACHE_ENABLED, Long.class,
             FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByUserIdYear",
-            new String[] { Integer.class.getName(), Integer.class.getName() });
+            new String[] { Long.class.getName(), Integer.class.getName() });
     private static final String _FINDER_COLUMN_USERIDYEAR_USERID_2 = "salary.userId = ? AND ";
     private static final String _FINDER_COLUMN_USERIDYEAR_SALARYYEAR_2 = "salary.salaryYear = ?";
     public static final FinderPath FINDER_PATH_FETCH_BY_USERID = new FinderPath(SalaryModelImpl.ENTITY_CACHE_ENABLED,
             SalaryModelImpl.FINDER_CACHE_ENABLED, SalaryImpl.class,
             FINDER_CLASS_NAME_ENTITY, "fetchByUserId",
-            new String[] { Integer.class.getName() },
+            new String[] { Long.class.getName() },
             SalaryModelImpl.USERID_COLUMN_BITMASK);
     public static final FinderPath FINDER_PATH_COUNT_BY_USERID = new FinderPath(SalaryModelImpl.ENTITY_CACHE_ENABLED,
             SalaryModelImpl.FINDER_CACHE_ENABLED, Long.class,
             FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByUserId",
-            new String[] { Integer.class.getName() });
+            new String[] { Long.class.getName() });
     private static final String _FINDER_COLUMN_USERID_USERID_2 = "salary.userId = ?";
     private static final String _SQL_SELECT_SALARY = "SELECT salary FROM Salary salary";
     private static final String _SQL_SELECT_SALARY_WHERE = "SELECT salary FROM Salary salary WHERE ";
@@ -161,7 +161,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary findByUserIdMonthAndYear(int userId, int salaryMonth,
+    public Salary findByUserIdMonthAndYear(long userId, int salaryMonth,
         int salaryYear) throws NoSuchSalaryException, SystemException {
         Salary salary = fetchByUserIdMonthAndYear(userId, salaryMonth,
                 salaryYear);
@@ -202,7 +202,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary fetchByUserIdMonthAndYear(int userId, int salaryMonth,
+    public Salary fetchByUserIdMonthAndYear(long userId, int salaryMonth,
         int salaryYear) throws SystemException {
         return fetchByUserIdMonthAndYear(userId, salaryMonth, salaryYear, true);
     }
@@ -218,7 +218,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary fetchByUserIdMonthAndYear(int userId, int salaryMonth,
+    public Salary fetchByUserIdMonthAndYear(long userId, int salaryMonth,
         int salaryYear, boolean retrieveFromCache) throws SystemException {
         Object[] finderArgs = new Object[] { userId, salaryMonth, salaryYear };
 
@@ -313,7 +313,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary removeByUserIdMonthAndYear(int userId, int salaryMonth,
+    public Salary removeByUserIdMonthAndYear(long userId, int salaryMonth,
         int salaryYear) throws NoSuchSalaryException, SystemException {
         Salary salary = findByUserIdMonthAndYear(userId, salaryMonth, salaryYear);
 
@@ -330,7 +330,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public int countByUserIdMonthAndYear(int userId, int salaryMonth,
+    public int countByUserIdMonthAndYear(long userId, int salaryMonth,
         int salaryYear) throws SystemException {
         FinderPath finderPath = FINDER_PATH_COUNT_BY_USERIDMONTHANDYEAR;
 
@@ -392,7 +392,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary findByUserIdYear(int userId, int salaryYear)
+    public Salary findByUserIdYear(long userId, int salaryYear)
         throws NoSuchSalaryException, SystemException {
         Salary salary = fetchByUserIdYear(userId, salaryYear);
 
@@ -428,7 +428,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary fetchByUserIdYear(int userId, int salaryYear)
+    public Salary fetchByUserIdYear(long userId, int salaryYear)
         throws SystemException {
         return fetchByUserIdYear(userId, salaryYear, true);
     }
@@ -443,7 +443,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary fetchByUserIdYear(int userId, int salaryYear,
+    public Salary fetchByUserIdYear(long userId, int salaryYear,
         boolean retrieveFromCache) throws SystemException {
         Object[] finderArgs = new Object[] { userId, salaryYear };
 
@@ -531,7 +531,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary removeByUserIdYear(int userId, int salaryYear)
+    public Salary removeByUserIdYear(long userId, int salaryYear)
         throws NoSuchSalaryException, SystemException {
         Salary salary = findByUserIdYear(userId, salaryYear);
 
@@ -547,7 +547,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public int countByUserIdYear(int userId, int salaryYear)
+    public int countByUserIdYear(long userId, int salaryYear)
         throws SystemException {
         FinderPath finderPath = FINDER_PATH_COUNT_BY_USERIDYEAR;
 
@@ -604,7 +604,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary findByUserId(int userId)
+    public Salary findByUserId(long userId)
         throws NoSuchSalaryException, SystemException {
         Salary salary = fetchByUserId(userId);
 
@@ -636,7 +636,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary fetchByUserId(int userId) throws SystemException {
+    public Salary fetchByUserId(long userId) throws SystemException {
         return fetchByUserId(userId, true);
     }
 
@@ -649,7 +649,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary fetchByUserId(int userId, boolean retrieveFromCache)
+    public Salary fetchByUserId(long userId, boolean retrieveFromCache)
         throws SystemException {
         Object[] finderArgs = new Object[] { userId };
 
@@ -730,7 +730,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary removeByUserId(int userId)
+    public Salary removeByUserId(long userId)
         throws NoSuchSalaryException, SystemException {
         Salary salary = findByUserId(userId);
 
@@ -745,7 +745,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public int countByUserId(int userId) throws SystemException {
+    public int countByUserId(long userId) throws SystemException {
         FinderPath finderPath = FINDER_PATH_COUNT_BY_USERID;
 
         Object[] finderArgs = new Object[] { userId };
@@ -1010,7 +1010,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @return the new salary
      */
     @Override
-    public Salary create(int id) {
+    public Salary create(long id) {
         Salary salary = new SalaryImpl();
 
         salary.setNew(true);
@@ -1028,7 +1028,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary remove(int id) throws NoSuchSalaryException, SystemException {
+    public Salary remove(long id) throws NoSuchSalaryException, SystemException {
         return remove((Serializable) id);
     }
 
@@ -1206,7 +1206,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary findByPrimaryKey(int id)
+    public Salary findByPrimaryKey(long id)
         throws NoSuchSalaryException, SystemException {
         return findByPrimaryKey((Serializable) id);
     }
@@ -1263,7 +1263,7 @@ public class SalaryPersistenceImpl extends BasePersistenceImpl<Salary>
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public Salary fetchByPrimaryKey(int id) throws SystemException {
+    public Salary fetchByPrimaryKey(long id) throws SystemException {
         return fetchByPrimaryKey((Serializable) id);
     }
 

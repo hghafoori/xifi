@@ -31,7 +31,7 @@ public interface EmployeeDetailPersistence extends BasePersistence<EmployeeDetai
     * @throws com.xebia.xifire.NoSuchEmployeeDetailException if a matching employee detail could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.EmployeeDetail findByUserId(int userId)
+    public com.xebia.xifire.model.EmployeeDetail findByUserId(long userId)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchEmployeeDetailException;
 
@@ -42,7 +42,7 @@ public interface EmployeeDetailPersistence extends BasePersistence<EmployeeDetai
     * @return the matching employee detail, or <code>null</code> if a matching employee detail could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.EmployeeDetail fetchByUserId(int userId)
+    public com.xebia.xifire.model.EmployeeDetail fetchByUserId(long userId)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**
@@ -53,7 +53,7 @@ public interface EmployeeDetailPersistence extends BasePersistence<EmployeeDetai
     * @return the matching employee detail, or <code>null</code> if a matching employee detail could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.EmployeeDetail fetchByUserId(int userId,
+    public com.xebia.xifire.model.EmployeeDetail fetchByUserId(long userId,
         boolean retrieveFromCache)
         throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -64,7 +64,7 @@ public interface EmployeeDetailPersistence extends BasePersistence<EmployeeDetai
     * @return the employee detail that was removed
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.EmployeeDetail removeByUserId(int userId)
+    public com.xebia.xifire.model.EmployeeDetail removeByUserId(long userId)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchEmployeeDetailException;
 
@@ -75,7 +75,7 @@ public interface EmployeeDetailPersistence extends BasePersistence<EmployeeDetai
     * @return the number of matching employee details
     * @throws SystemException if a system exception occurred
     */
-    public int countByUserId(int userId)
+    public int countByUserId(long userId)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**
@@ -100,7 +100,7 @@ public interface EmployeeDetailPersistence extends BasePersistence<EmployeeDetai
     * @param id the primary key for the new employee detail
     * @return the new employee detail
     */
-    public com.xebia.xifire.model.EmployeeDetail create(int id);
+    public com.xebia.xifire.model.EmployeeDetail create(long id);
 
     /**
     * Removes the employee detail with the primary key from the database. Also notifies the appropriate model listeners.
@@ -110,7 +110,7 @@ public interface EmployeeDetailPersistence extends BasePersistence<EmployeeDetai
     * @throws com.xebia.xifire.NoSuchEmployeeDetailException if a employee detail with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.EmployeeDetail remove(int id)
+    public com.xebia.xifire.model.EmployeeDetail remove(long id)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchEmployeeDetailException;
 
@@ -126,7 +126,7 @@ public interface EmployeeDetailPersistence extends BasePersistence<EmployeeDetai
     * @throws com.xebia.xifire.NoSuchEmployeeDetailException if a employee detail with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.EmployeeDetail findByPrimaryKey(int id)
+    public com.xebia.xifire.model.EmployeeDetail findByPrimaryKey(long id)
         throws com.liferay.portal.kernel.exception.SystemException,
             com.xebia.xifire.NoSuchEmployeeDetailException;
 
@@ -137,7 +137,7 @@ public interface EmployeeDetailPersistence extends BasePersistence<EmployeeDetai
     * @return the employee detail, or <code>null</code> if a employee detail with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public com.xebia.xifire.model.EmployeeDetail fetchByPrimaryKey(int id)
+    public com.xebia.xifire.model.EmployeeDetail fetchByPrimaryKey(long id)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**

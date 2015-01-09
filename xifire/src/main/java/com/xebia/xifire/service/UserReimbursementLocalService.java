@@ -50,7 +50,7 @@ public interface UserReimbursementLocalService extends BaseLocalService,
     * @return the new user reimbursement
     */
     public com.xebia.xifire.model.UserReimbursement createUserReimbursement(
-        int id);
+        long id);
 
     /**
     * Deletes the user reimbursement with the primary key from the database. Also notifies the appropriate model listeners.
@@ -61,7 +61,7 @@ public interface UserReimbursementLocalService extends BaseLocalService,
     * @throws SystemException if a system exception occurred
     */
     public com.xebia.xifire.model.UserReimbursement deleteUserReimbursement(
-        int id)
+        long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException;
 
@@ -155,7 +155,7 @@ public interface UserReimbursementLocalService extends BaseLocalService,
 
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public com.xebia.xifire.model.UserReimbursement fetchUserReimbursement(
-        int id) throws com.liferay.portal.kernel.exception.SystemException;
+        long id) throws com.liferay.portal.kernel.exception.SystemException;
 
     /**
     * Returns the user reimbursement with the primary key.
@@ -166,7 +166,8 @@ public interface UserReimbursementLocalService extends BaseLocalService,
     * @throws SystemException if a system exception occurred
     */
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public com.xebia.xifire.model.UserReimbursement getUserReimbursement(int id)
+    public com.xebia.xifire.model.UserReimbursement getUserReimbursement(
+        long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException;
 

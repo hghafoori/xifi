@@ -40,7 +40,7 @@ public class EmployeeDetailLocalServiceWrapper
     * @return the new employee detail
     */
     @Override
-    public com.xebia.xifire.model.EmployeeDetail createEmployeeDetail(int id) {
+    public com.xebia.xifire.model.EmployeeDetail createEmployeeDetail(long id) {
         return _employeeDetailLocalService.createEmployeeDetail(id);
     }
 
@@ -53,7 +53,7 @@ public class EmployeeDetailLocalServiceWrapper
     * @throws SystemException if a system exception occurred
     */
     @Override
-    public com.xebia.xifire.model.EmployeeDetail deleteEmployeeDetail(int id)
+    public com.xebia.xifire.model.EmployeeDetail deleteEmployeeDetail(long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         return _employeeDetailLocalService.deleteEmployeeDetail(id);
@@ -171,7 +171,7 @@ public class EmployeeDetailLocalServiceWrapper
     }
 
     @Override
-    public com.xebia.xifire.model.EmployeeDetail fetchEmployeeDetail(int id)
+    public com.xebia.xifire.model.EmployeeDetail fetchEmployeeDetail(long id)
         throws com.liferay.portal.kernel.exception.SystemException {
         return _employeeDetailLocalService.fetchEmployeeDetail(id);
     }
@@ -185,7 +185,7 @@ public class EmployeeDetailLocalServiceWrapper
     * @throws SystemException if a system exception occurred
     */
     @Override
-    public com.xebia.xifire.model.EmployeeDetail getEmployeeDetail(int id)
+    public com.xebia.xifire.model.EmployeeDetail getEmployeeDetail(long id)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         return _employeeDetailLocalService.getEmployeeDetail(id);

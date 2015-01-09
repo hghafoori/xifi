@@ -104,7 +104,7 @@ public abstract class EmployeeDetailLocalServiceBaseImpl
      * @return the new employee detail
      */
     @Override
-    public EmployeeDetail createEmployeeDetail(int id) {
+    public EmployeeDetail createEmployeeDetail(long id) {
         return employeeDetailPersistence.create(id);
     }
 
@@ -118,7 +118,7 @@ public abstract class EmployeeDetailLocalServiceBaseImpl
      */
     @Indexable(type = IndexableType.DELETE)
     @Override
-    public EmployeeDetail deleteEmployeeDetail(int id)
+    public EmployeeDetail deleteEmployeeDetail(long id)
         throws PortalException, SystemException {
         return employeeDetailPersistence.remove(id);
     }
@@ -231,7 +231,8 @@ public abstract class EmployeeDetailLocalServiceBaseImpl
     }
 
     @Override
-    public EmployeeDetail fetchEmployeeDetail(int id) throws SystemException {
+    public EmployeeDetail fetchEmployeeDetail(long id)
+        throws SystemException {
         return employeeDetailPersistence.fetchByPrimaryKey(id);
     }
 
@@ -244,7 +245,7 @@ public abstract class EmployeeDetailLocalServiceBaseImpl
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public EmployeeDetail getEmployeeDetail(int id)
+    public EmployeeDetail getEmployeeDetail(long id)
         throws PortalException, SystemException {
         return employeeDetailPersistence.findByPrimaryKey(id);
     }

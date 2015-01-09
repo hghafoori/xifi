@@ -54,13 +54,13 @@ public class EmployeeDetailWrapper implements EmployeeDetail,
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        Integer id = (Integer) attributes.get("id");
+        Long id = (Long) attributes.get("id");
 
         if (id != null) {
             setId(id);
         }
 
-        Integer userId = (Integer) attributes.get("userId");
+        Long userId = (Long) attributes.get("userId");
 
         if (userId != null) {
             setUserId(userId);
@@ -121,7 +121,7 @@ public class EmployeeDetailWrapper implements EmployeeDetail,
     * @return the primary key of this employee detail
     */
     @Override
-    public int getPrimaryKey() {
+    public long getPrimaryKey() {
         return _employeeDetail.getPrimaryKey();
     }
 
@@ -131,7 +131,7 @@ public class EmployeeDetailWrapper implements EmployeeDetail,
     * @param primaryKey the primary key of this employee detail
     */
     @Override
-    public void setPrimaryKey(int primaryKey) {
+    public void setPrimaryKey(long primaryKey) {
         _employeeDetail.setPrimaryKey(primaryKey);
     }
 
@@ -141,7 +141,7 @@ public class EmployeeDetailWrapper implements EmployeeDetail,
     * @return the ID of this employee detail
     */
     @Override
-    public int getId() {
+    public long getId() {
         return _employeeDetail.getId();
     }
 
@@ -151,7 +151,7 @@ public class EmployeeDetailWrapper implements EmployeeDetail,
     * @param id the ID of this employee detail
     */
     @Override
-    public void setId(int id) {
+    public void setId(long id) {
         _employeeDetail.setId(id);
     }
 
@@ -161,7 +161,7 @@ public class EmployeeDetailWrapper implements EmployeeDetail,
     * @return the user ID of this employee detail
     */
     @Override
-    public int getUserId() {
+    public long getUserId() {
         return _employeeDetail.getUserId();
     }
 
@@ -171,8 +171,30 @@ public class EmployeeDetailWrapper implements EmployeeDetail,
     * @param userId the user ID of this employee detail
     */
     @Override
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         _employeeDetail.setUserId(userId);
+    }
+
+    /**
+    * Returns the user uuid of this employee detail.
+    *
+    * @return the user uuid of this employee detail
+    * @throws SystemException if a system exception occurred
+    */
+    @Override
+    public java.lang.String getUserUuid()
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return _employeeDetail.getUserUuid();
+    }
+
+    /**
+    * Sets the user uuid of this employee detail.
+    *
+    * @param userUuid the user uuid of this employee detail
+    */
+    @Override
+    public void setUserUuid(java.lang.String userUuid) {
+        _employeeDetail.setUserUuid(userUuid);
     }
 
     /**

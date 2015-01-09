@@ -22,8 +22,8 @@ import java.util.Date;
  */
 public class EmployeeDetailCacheModel implements CacheModel<EmployeeDetail>,
     Externalizable {
-    public int id;
-    public int userId;
+    public long id;
+    public long userId;
     public String employeeCode;
     public String designation;
     public String location;
@@ -124,8 +124,8 @@ public class EmployeeDetailCacheModel implements CacheModel<EmployeeDetail>,
 
     @Override
     public void readExternal(ObjectInput objectInput) throws IOException {
-        id = objectInput.readInt();
-        userId = objectInput.readInt();
+        id = objectInput.readLong();
+        userId = objectInput.readLong();
         employeeCode = objectInput.readUTF();
         designation = objectInput.readUTF();
         location = objectInput.readUTF();
@@ -139,8 +139,8 @@ public class EmployeeDetailCacheModel implements CacheModel<EmployeeDetail>,
     @Override
     public void writeExternal(ObjectOutput objectOutput)
         throws IOException {
-        objectOutput.writeInt(id);
-        objectOutput.writeInt(userId);
+        objectOutput.writeLong(id);
+        objectOutput.writeLong(userId);
 
         if (employeeCode == null) {
             objectOutput.writeUTF(StringPool.BLANK);

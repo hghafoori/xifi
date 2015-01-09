@@ -1,11 +1,17 @@
 package com.xebia.xifire.model.impl;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.impl.BaseModelImpl;
+import com.liferay.portal.service.ServiceContext;
+import com.liferay.portal.util.PortalUtil;
+
+import com.liferay.portlet.expando.model.ExpandoBridge;
+import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
 
 import com.xebia.xifire.model.Salary;
 import com.xebia.xifire.model.SalaryModel;
@@ -39,8 +45,8 @@ public class SalaryModelImpl extends BaseModelImpl<Salary>
      */
     public static final String TABLE_NAME = "salary";
     public static final Object[][] TABLE_COLUMNS = {
-            { "id_", Types.INTEGER },
-            { "userId", Types.INTEGER },
+            { "id_", Types.BIGINT },
+            { "userId", Types.BIGINT },
             { "salaryMonth", Types.INTEGER },
             { "salaryYear", Types.INTEGER },
             { "basic", Types.INTEGER },
@@ -59,7 +65,7 @@ public class SalaryModelImpl extends BaseModelImpl<Salary>
             { "mediclaim", Types.INTEGER },
             { "otherDeduction", Types.INTEGER }
         };
-    public static final String TABLE_SQL_CREATE = "create table salary (id_ INTEGER not null primary key,userId INTEGER,salaryMonth INTEGER,salaryYear INTEGER,basic INTEGER,arrears INTEGER,others INTEGER,tds INTEGER,lta INTEGER,HRA INTEGER,specialAllowance INTEGER,attireAllowance INTEGER,foodAllowance INTEGER,educationCess INTEGER,pf INTEGER,epf INTEGER,laborWelfare INTEGER,mediclaim INTEGER,otherDeduction INTEGER)";
+    public static final String TABLE_SQL_CREATE = "create table salary (id_ LONG not null primary key,userId LONG,salaryMonth INTEGER,salaryYear INTEGER,basic INTEGER,arrears INTEGER,others INTEGER,tds INTEGER,lta INTEGER,HRA INTEGER,specialAllowance INTEGER,attireAllowance INTEGER,foodAllowance INTEGER,educationCess INTEGER,pf INTEGER,epf INTEGER,laborWelfare INTEGER,mediclaim INTEGER,otherDeduction INTEGER)";
     public static final String TABLE_SQL_DROP = "drop table salary";
     public static final String ORDER_BY_JPQL = " ORDER BY salary.id ASC";
     public static final String ORDER_BY_SQL = " ORDER BY salary.id_ ASC";
@@ -83,9 +89,10 @@ public class SalaryModelImpl extends BaseModelImpl<Salary>
                 "lock.expiration.time.com.xebia.xifire.model.Salary"));
     private static ClassLoader _classLoader = Salary.class.getClassLoader();
     private static Class<?>[] _escapedModelInterfaces = new Class[] { Salary.class };
-    private int _id;
-    private int _userId;
-    private int _originalUserId;
+    private long _id;
+    private long _userId;
+    private String _userUuid;
+    private long _originalUserId;
     private boolean _setOriginalUserId;
     private int _salaryMonth;
     private int _originalSalaryMonth;
@@ -115,12 +122,12 @@ public class SalaryModelImpl extends BaseModelImpl<Salary>
     }
 
     @Override
-    public int getPrimaryKey() {
+    public long getPrimaryKey() {
         return _id;
     }
 
     @Override
-    public void setPrimaryKey(int primaryKey) {
+    public void setPrimaryKey(long primaryKey) {
         setId(primaryKey);
     }
 
@@ -131,7 +138,7 @@ public class SalaryModelImpl extends BaseModelImpl<Salary>
 
     @Override
     public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-        setPrimaryKey(((Integer) primaryKeyObj).intValue());
+        setPrimaryKey(((Long) primaryKeyObj).longValue());
     }
 
     @Override
@@ -173,13 +180,13 @@ public class SalaryModelImpl extends BaseModelImpl<Salary>
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        Integer id = (Integer) attributes.get("id");
+        Long id = (Long) attributes.get("id");
 
         if (id != null) {
             setId(id);
         }
 
-        Integer userId = (Integer) attributes.get("userId");
+        Long userId = (Long) attributes.get("userId");
 
         if (userId != null) {
             setUserId(userId);
@@ -289,22 +296,22 @@ public class SalaryModelImpl extends BaseModelImpl<Salary>
     }
 
     @Override
-    public int getId() {
+    public long getId() {
         return _id;
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(long id) {
         _id = id;
     }
 
     @Override
-    public int getUserId() {
+    public long getUserId() {
         return _userId;
     }
 
     @Override
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         _columnBitmask |= USERID_COLUMN_BITMASK;
 
         if (!_setOriginalUserId) {
@@ -316,7 +323,17 @@ public class SalaryModelImpl extends BaseModelImpl<Salary>
         _userId = userId;
     }
 
-    public int getOriginalUserId() {
+    @Override
+    public String getUserUuid() throws SystemException {
+        return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
+    }
+
+    @Override
+    public void setUserUuid(String userUuid) {
+        _userUuid = userUuid;
+    }
+
+    public long getOriginalUserId() {
         return _originalUserId;
     }
 
@@ -519,6 +536,19 @@ public class SalaryModelImpl extends BaseModelImpl<Salary>
     }
 
     @Override
+    public ExpandoBridge getExpandoBridge() {
+        return ExpandoBridgeFactoryUtil.getExpandoBridge(0,
+            Salary.class.getName(), getPrimaryKey());
+    }
+
+    @Override
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
+        ExpandoBridge expandoBridge = getExpandoBridge();
+
+        expandoBridge.setAttributes(serviceContext);
+    }
+
+    @Override
     public Salary toEscapedModel() {
         if (_escapedModel == null) {
             _escapedModel = (Salary) ProxyUtil.newProxyInstance(_classLoader,
@@ -559,7 +589,7 @@ public class SalaryModelImpl extends BaseModelImpl<Salary>
 
     @Override
     public int compareTo(Salary salary) {
-        int primaryKey = salary.getPrimaryKey();
+        long primaryKey = salary.getPrimaryKey();
 
         if (getPrimaryKey() < primaryKey) {
             return -1;
@@ -582,7 +612,7 @@ public class SalaryModelImpl extends BaseModelImpl<Salary>
 
         Salary salary = (Salary) obj;
 
-        int primaryKey = salary.getPrimaryKey();
+        long primaryKey = salary.getPrimaryKey();
 
         if (getPrimaryKey() == primaryKey) {
             return true;
@@ -593,7 +623,7 @@ public class SalaryModelImpl extends BaseModelImpl<Salary>
 
     @Override
     public int hashCode() {
-        return getPrimaryKey();
+        return (int) getPrimaryKey();
     }
 
     @Override

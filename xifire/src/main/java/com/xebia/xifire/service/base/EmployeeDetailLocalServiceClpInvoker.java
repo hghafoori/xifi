@@ -57,11 +57,11 @@ public class EmployeeDetailLocalServiceClpInvoker {
 
         _methodName1 = "createEmployeeDetail";
 
-        _methodParameterTypes1 = new String[] { "int" };
+        _methodParameterTypes1 = new String[] { "long" };
 
         _methodName2 = "deleteEmployeeDetail";
 
-        _methodParameterTypes2 = new String[] { "int" };
+        _methodParameterTypes2 = new String[] { "long" };
 
         _methodName3 = "deleteEmployeeDetail";
 
@@ -107,11 +107,11 @@ public class EmployeeDetailLocalServiceClpInvoker {
 
         _methodName10 = "fetchEmployeeDetail";
 
-        _methodParameterTypes10 = new String[] { "int" };
+        _methodParameterTypes10 = new String[] { "long" };
 
         _methodName11 = "getEmployeeDetail";
 
-        _methodParameterTypes11 = new String[] { "int" };
+        _methodParameterTypes11 = new String[] { "long" };
 
         _methodName12 = "getPersistedModel";
 
@@ -153,12 +153,12 @@ public class EmployeeDetailLocalServiceClpInvoker {
 
         if (_methodName1.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes1, parameterTypes)) {
-            return EmployeeDetailLocalServiceUtil.createEmployeeDetail(((Integer) arguments[0]).intValue());
+            return EmployeeDetailLocalServiceUtil.createEmployeeDetail(((Long) arguments[0]).longValue());
         }
 
         if (_methodName2.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes2, parameterTypes)) {
-            return EmployeeDetailLocalServiceUtil.deleteEmployeeDetail(((Integer) arguments[0]).intValue());
+            return EmployeeDetailLocalServiceUtil.deleteEmployeeDetail(((Long) arguments[0]).longValue());
         }
 
         if (_methodName3.equals(name) &&
@@ -204,12 +204,12 @@ public class EmployeeDetailLocalServiceClpInvoker {
 
         if (_methodName10.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes10, parameterTypes)) {
-            return EmployeeDetailLocalServiceUtil.fetchEmployeeDetail(((Integer) arguments[0]).intValue());
+            return EmployeeDetailLocalServiceUtil.fetchEmployeeDetail(((Long) arguments[0]).longValue());
         }
 
         if (_methodName11.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes11, parameterTypes)) {
-            return EmployeeDetailLocalServiceUtil.getEmployeeDetail(((Integer) arguments[0]).intValue());
+            return EmployeeDetailLocalServiceUtil.getEmployeeDetail(((Long) arguments[0]).longValue());
         }
 
         if (_methodName12.equals(name) &&
