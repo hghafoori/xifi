@@ -1,8 +1,14 @@
 body {
   padding-top: 50px;
 }
+.navbarbgcolor {
+    background-color: #800080;
+}
+.navbarlink {
+    color: white;
+}
 
-
+.white-caret{border-top:4px solid white;}
 /*
  * Global add-ons
  */
@@ -97,4 +103,10 @@ body {
 .placeholder img {
   display: inline-block;
   border-radius: 50%;
+}
+
+.navBarSearch input[type="text"] {
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
 }

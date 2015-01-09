@@ -24,41 +24,19 @@
 
 $theme.include($body_top_include)
 
-#if ($is_signed_in)
-	#dockbar()
-#end
 
 <div class="container-fluid" id="wrapper">
 	<header id="banner" role="banner">
-		<div id="heading">
-			<h1 class="site-title">
-				<a class="$logo_css_class" href="$site_default_url" title="#language_format ("go-to-x", [$site_name])">
-					<img alt="$logo_description" height="$site_logo_height" src="$site_logo" width="$site_logo_width" />
-				</a>
-
-				#if ($show_site_name)
-					<span class="site-name" title="#language_format ("go-to-x", [$site_name])">
-						$site_name
-					</span>
-				#end
-			</h1>
-
-			<h2 class="page-title">
-				<span>$the_title</span>
-			</h2>
-		</div>
-
-		#if (!$is_signed_in)
-			<a data-redirect="$is_login_redirect_required" href="$sign_in_url" id="sign-in" rel="nofollow">$sign_in_text</a>
-		#end
+		
+		
 
 		#if ($has_navigation || $is_signed_in)
 			#parse ("$full_templates_path/navigation.vm")
 		#end
 	</header>
-
+<nav id="breadcrumbs">#breadcrumbs()</nav>
 	<div id="content">
-		<nav id="breadcrumbs">#breadcrumbs()</nav>
+		
 
 		#if ($selectable)
 			$theme.include($content_include)
@@ -70,12 +48,8 @@ $theme.include($body_top_include)
 			$theme.wrapPortlet("portlet.vm", $content_include)
 		#end
 	</div>
-
-	<footer id="footer" role="contentinfo">
-		<p class="powered-by">
-			#language ("powered-by") <a href="http://www.liferay.com" rel="external">Liferay</a>
-		</p>
-	</footer>
+	<nav class="navbar navbarbgcolor navbar-fixed-bottom">
+  <span class="col-sm-5"></span> <span class="col-sm-2 navbarlink"><strong>&copy; Xebia India</strong></span> <span class="col-sm-5"></span>  </nav>
 </div>
 
 $theme.include($body_bottom_include)
@@ -84,7 +58,7 @@ $theme.include($bottom_include)
 <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="/xifi-theme/js/bootstrap.min.js"></script>
-    <script src="/xifi-theme/js/docs.min.js"></script>
+    
 </body>
 
 </html>
