@@ -259,23 +259,6 @@ public class SalaryLocalServiceUtil {
         return getService().invokeMethod(name, parameterTypes, arguments);
     }
 
-    public static com.xebia.xifire.model.Salary findByUserId(int userId)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        return getService().findByUserId(userId);
-    }
-
-    public static com.xebia.xifire.model.Salary findByUserIdAndYear(
-        int userId, int year)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        return getService().findByUserIdAndYear(userId, year);
-    }
-
-    public static com.xebia.xifire.model.Salary findByUserIdMonthAndYear(
-        int userId, int month, int year)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        return getService().findByUserIdMonthAndYear(userId, month, year);
-    }
-
     public static void clearService() {
         _service = null;
     }

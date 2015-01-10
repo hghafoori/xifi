@@ -313,8 +313,7 @@ public class UserReimbursementWrapper implements UserReimbursement,
     }
 
     @Override
-    public int compareTo(
-        com.xebia.xifire.model.UserReimbursement userReimbursement) {
+    public int compareTo(UserReimbursement userReimbursement) {
         return _userReimbursement.compareTo(userReimbursement);
     }
 
@@ -324,17 +323,17 @@ public class UserReimbursementWrapper implements UserReimbursement,
     }
 
     @Override
-    public com.liferay.portal.model.CacheModel<com.xebia.xifire.model.UserReimbursement> toCacheModel() {
+    public com.liferay.portal.model.CacheModel<UserReimbursement> toCacheModel() {
         return _userReimbursement.toCacheModel();
     }
 
     @Override
-    public com.xebia.xifire.model.UserReimbursement toEscapedModel() {
+    public UserReimbursement toEscapedModel() {
         return new UserReimbursementWrapper(_userReimbursement.toEscapedModel());
     }
 
     @Override
-    public com.xebia.xifire.model.UserReimbursement toUnescapedModel() {
+    public UserReimbursement toUnescapedModel() {
         return new UserReimbursementWrapper(_userReimbursement.toUnescapedModel());
     }
 

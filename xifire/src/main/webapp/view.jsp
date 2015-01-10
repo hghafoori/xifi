@@ -17,7 +17,7 @@
       			<label class="sr-only" for="email">Category</label>
       	</td>
       <td>
-      	<select class="form-control" id="category" name="category">
+      	<select class="form-control" id="<portlet:namespace/>category" name="<portlet:namespace/>category">
 		      <option value="Apparel">Apparel</option>
 		      <option value="Phone">Phone</option>
 		      <option value="Internet">Internet</option>
@@ -33,21 +33,21 @@
     <td>
       <label class="sr-only" for="date">Bill Date</label>
       </td><td>
-      <input type="text" class="form-control" id="date" placeholder="DD/MM/YYYY" name="billDate">
+      <input type="text" class="form-control" id="<portlet:namespace/>date" placeholder="DD/MM/YYYY" name="<portlet:namespace/>billDate">
       </td>
     </tr>
     <tr>
     <td>
       <label class="sr-only" for="amount">Bill Amount</label>
       </td><td>
-      <input type="number" class="form-control" id="amount" placeholder="00" name="billAmount">
+      <input type="number" class="form-control" id="<portlet:namespace/>amount" placeholder="00" name="<portlet:namespace/>billAmount">
       </td>
     </tr>
     <tr>
     <td>
       <label class="sr-only" for="billDoc">Choose Invoice</label>
       </td><td>
-      <input type="file" class="form-control" id="billDoc" placeholder="Choose Invoice">
+      <input type="file" class="form-control" id="<portlet:namespace/>billDoc" placeholder="Choose Invoice">
       </td>
     </tr>
     <tr>

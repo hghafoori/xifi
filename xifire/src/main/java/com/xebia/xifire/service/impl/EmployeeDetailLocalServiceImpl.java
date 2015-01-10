@@ -1,8 +1,5 @@
 package com.xebia.xifire.service.impl;
 
-import com.liferay.portal.kernel.exception.SystemException;
-import com.xebia.xifire.NoSuchEmployeeDetailException;
-import com.xebia.xifire.model.EmployeeDetail;
 import com.xebia.xifire.service.base.EmployeeDetailLocalServiceBaseImpl;
 
 /**
@@ -26,8 +23,4 @@ public class EmployeeDetailLocalServiceImpl
      *
      * Never reference this interface directly. Always use {@link com.xebia.xifire.service.EmployeeDetailLocalServiceUtil} to access the employee detail local service.
      */
-	
-	public EmployeeDetail findByUserId(int userId) throws NoSuchEmployeeDetailException, SystemException {
-		return employeeDetailPersistence.findByUserId(userId);
-	}
 }

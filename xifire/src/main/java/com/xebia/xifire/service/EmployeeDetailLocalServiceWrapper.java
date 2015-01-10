@@ -272,13 +272,6 @@ public class EmployeeDetailLocalServiceWrapper
             arguments);
     }
 
-    @Override
-    public com.xebia.xifire.model.EmployeeDetail findByUserId(int userId)
-        throws com.liferay.portal.kernel.exception.SystemException,
-            com.xebia.xifire.NoSuchEmployeeDetailException {
-        return _employeeDetailLocalService.findByUserId(userId);
-    }
-
     /**
      * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
      */

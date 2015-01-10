@@ -234,8 +234,4 @@ public interface UserReimbursementLocalService extends BaseLocalService,
     public java.lang.Object invokeMethod(java.lang.String name,
         java.lang.String[] parameterTypes, java.lang.Object[] arguments)
         throws java.lang.Throwable;
-
-    public com.xebia.xifire.model.UserReimbursement findByUserId(int userId)
-        throws com.liferay.portal.kernel.exception.SystemException,
-            com.xebia.xifire.NoSuchUserReimbursementException;
 }

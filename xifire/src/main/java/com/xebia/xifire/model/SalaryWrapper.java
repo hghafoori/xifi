@@ -662,7 +662,7 @@ public class SalaryWrapper implements Salary, ModelWrapper<Salary> {
     }
 
     @Override
-    public int compareTo(com.xebia.xifire.model.Salary salary) {
+    public int compareTo(Salary salary) {
         return _salary.compareTo(salary);
     }
 
@@ -672,17 +672,17 @@ public class SalaryWrapper implements Salary, ModelWrapper<Salary> {
     }
 
     @Override
-    public com.liferay.portal.model.CacheModel<com.xebia.xifire.model.Salary> toCacheModel() {
+    public com.liferay.portal.model.CacheModel<Salary> toCacheModel() {
         return _salary.toCacheModel();
     }
 
     @Override
-    public com.xebia.xifire.model.Salary toEscapedModel() {
+    public Salary toEscapedModel() {
         return new SalaryWrapper(_salary.toEscapedModel());
     }
 
     @Override
-    public com.xebia.xifire.model.Salary toUnescapedModel() {
+    public Salary toUnescapedModel() {
         return new SalaryWrapper(_salary.toUnescapedModel());
     }
 

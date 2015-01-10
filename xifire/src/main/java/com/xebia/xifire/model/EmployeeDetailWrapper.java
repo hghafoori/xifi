@@ -421,7 +421,7 @@ public class EmployeeDetailWrapper implements EmployeeDetail,
     }
 
     @Override
-    public int compareTo(com.xebia.xifire.model.EmployeeDetail employeeDetail) {
+    public int compareTo(EmployeeDetail employeeDetail) {
         return _employeeDetail.compareTo(employeeDetail);
     }
 
@@ -431,17 +431,17 @@ public class EmployeeDetailWrapper implements EmployeeDetail,
     }
 
     @Override
-    public com.liferay.portal.model.CacheModel<com.xebia.xifire.model.EmployeeDetail> toCacheModel() {
+    public com.liferay.portal.model.CacheModel<EmployeeDetail> toCacheModel() {
         return _employeeDetail.toCacheModel();
     }
 
     @Override
-    public com.xebia.xifire.model.EmployeeDetail toEscapedModel() {
+    public EmployeeDetail toEscapedModel() {
         return new EmployeeDetailWrapper(_employeeDetail.toEscapedModel());
     }
 
     @Override
-    public com.xebia.xifire.model.EmployeeDetail toUnescapedModel() {
+    public EmployeeDetail toUnescapedModel() {
         return new EmployeeDetailWrapper(_employeeDetail.toUnescapedModel());
     }
 

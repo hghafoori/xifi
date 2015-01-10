@@ -320,8 +320,7 @@ public class ReimbursementItemWrapper implements ReimbursementItem,
     }
 
     @Override
-    public int compareTo(
-        com.xebia.xifire.model.ReimbursementItem reimbursementItem) {
+    public int compareTo(ReimbursementItem reimbursementItem) {
         return _reimbursementItem.compareTo(reimbursementItem);
     }
 
@@ -331,17 +330,17 @@ public class ReimbursementItemWrapper implements ReimbursementItem,
     }
 
     @Override
-    public com.liferay.portal.model.CacheModel<com.xebia.xifire.model.ReimbursementItem> toCacheModel() {
+    public com.liferay.portal.model.CacheModel<ReimbursementItem> toCacheModel() {
         return _reimbursementItem.toCacheModel();
     }
 
     @Override
-    public com.xebia.xifire.model.ReimbursementItem toEscapedModel() {
+    public ReimbursementItem toEscapedModel() {
         return new ReimbursementItemWrapper(_reimbursementItem.toEscapedModel());
     }
 
     @Override
-    public com.xebia.xifire.model.ReimbursementItem toUnescapedModel() {
+    public ReimbursementItem toUnescapedModel() {
         return new ReimbursementItemWrapper(_reimbursementItem.toUnescapedModel());
     }
 

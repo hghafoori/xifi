@@ -262,12 +262,6 @@ public class EmployeeDetailLocalServiceUtil {
         return getService().invokeMethod(name, parameterTypes, arguments);
     }
 
-    public static com.xebia.xifire.model.EmployeeDetail findByUserId(int userId)
-        throws com.liferay.portal.kernel.exception.SystemException,
-            com.xebia.xifire.NoSuchEmployeeDetailException {
-        return getService().findByUserId(userId);
-    }
-
     public static void clearService() {
         _service = null;
     }

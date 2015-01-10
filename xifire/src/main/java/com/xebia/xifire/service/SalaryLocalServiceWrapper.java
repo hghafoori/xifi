@@ -268,25 +268,6 @@ public class SalaryLocalServiceWrapper implements SalaryLocalService,
         return _salaryLocalService.invokeMethod(name, parameterTypes, arguments);
     }
 
-    @Override
-    public com.xebia.xifire.model.Salary findByUserId(int userId)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        return _salaryLocalService.findByUserId(userId);
-    }
-
-    @Override
-    public com.xebia.xifire.model.Salary findByUserIdAndYear(int userId,
-        int year) throws com.liferay.portal.kernel.exception.SystemException {
-        return _salaryLocalService.findByUserIdAndYear(userId, year);
-    }
-
-    @Override
-    public com.xebia.xifire.model.Salary findByUserIdMonthAndYear(int userId,
-        int month, int year)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        return _salaryLocalService.findByUserIdMonthAndYear(userId, month, year);
-    }
-
     /**
      * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
      */

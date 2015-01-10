@@ -262,13 +262,6 @@ public class UserReimbursementLocalServiceUtil {
         return getService().invokeMethod(name, parameterTypes, arguments);
     }
 
-    public static com.xebia.xifire.model.UserReimbursement findByUserId(
-        int userId)
-        throws com.liferay.portal.kernel.exception.SystemException,
-            com.xebia.xifire.NoSuchUserReimbursementException {
-        return getService().findByUserId(userId);
-    }
-
     public static void clearService() {
         _service = null;
     }

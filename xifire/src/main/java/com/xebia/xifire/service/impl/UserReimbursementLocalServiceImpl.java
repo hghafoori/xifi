@@ -1,8 +1,5 @@
 package com.xebia.xifire.service.impl;
 
-import com.liferay.portal.kernel.exception.SystemException;
-import com.xebia.xifire.NoSuchUserReimbursementException;
-import com.xebia.xifire.model.UserReimbursement;
 import com.xebia.xifire.service.base.UserReimbursementLocalServiceBaseImpl;
 
 /**
@@ -26,9 +23,4 @@ public class UserReimbursementLocalServiceImpl
      *
      * Never reference this interface directly. Always use {@link com.xebia.xifire.service.UserReimbursementLocalServiceUtil} to access the user reimbursement local service.
      */
-	
-	public UserReimbursement findByUserId(int userId) throws NoSuchUserReimbursementException, SystemException {
-		return userReimbursementPersistence.findByUserId(userId);
-	}
-	
 }
